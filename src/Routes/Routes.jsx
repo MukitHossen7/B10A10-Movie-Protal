@@ -6,6 +6,7 @@ import AddMovies from "../Pages/AddMovies/AddMovies";
 import LogIn from "../Pages/LogIn/LogIn";
 import Register from "../Pages/Register/Register";
 import MyFavorites from "../Pages/MyFavorites/MyFavorites";
+import DetailsPage from "../Pages/DetailsPage/DetailsPage";
 
 const router = createBrowserRouter([
   {
@@ -36,6 +37,10 @@ const router = createBrowserRouter([
       {
         path: "/myFavorites",
         element: <MyFavorites></MyFavorites>,
+      },
+      {
+        path: "/details",
+        element: <DetailsPage></DetailsPage>,
       },
     ],
   },
