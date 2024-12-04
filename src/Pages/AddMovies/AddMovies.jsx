@@ -1,5 +1,6 @@
 import { useState } from "react";
 import toast from "react-hot-toast";
+
 import { Rating } from "react-simple-star-rating";
 
 const AddMovies = () => {
