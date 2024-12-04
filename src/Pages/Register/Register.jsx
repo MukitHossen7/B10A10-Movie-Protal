@@ -7,8 +7,12 @@ import { FaEyeSlash } from "react-icons/fa";
 import { IoEyeSharp } from "react-icons/io5";
 
 const Register = () => {
-  const { createSignUpNewUsers, signInWithGoogle, updateUserProfile } =
-    useContext(AuthContext);
+  const {
+    createSignUpNewUsers,
+    signInWithGoogle,
+    updateUserProfile,
+    setRefetch,
+  } = useContext(AuthContext);
   const [passwordError, setPasswordError] = useState("");
   const [isTerms, setIsTerms] = useState("");
   const [signToggle, setSignToggle] = useState(false);
@@ -54,9 +58,9 @@ const Register = () => {
         e.target.reset();
         navigate("/");
         toast.success("Registration successful");
-        updateUserProfile({ displayName: name, photoURL: photo }).then(
-          () => {}
-        );
+        updateUserProfile({ displayName: name, photoURL: photo }).then(() => {
+          setRefetch(Date.now());
+        });
         console.log(result);
       })
       .catch(() => {

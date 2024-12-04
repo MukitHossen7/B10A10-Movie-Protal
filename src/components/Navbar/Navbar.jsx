@@ -1,10 +1,11 @@
 import { useContext } from "react";
 import { CiLogin, CiLogout } from "react-icons/ci";
-import { FaUserPlus } from "react-icons/fa";
+
 import { FiFilm } from "react-icons/fi";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
 import toast from "react-hot-toast";
+import { BiUserPlus } from "react-icons/bi";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -44,7 +45,7 @@ const Navbar = () => {
               <NavLink to="/myFavorites">My Favorites</NavLink>
             </ul>
           </div>
-          <Link to="/" className="flex items-center space-x-2">
+          <Link to="/" className="flex items-center space-x-1 lg:space-x-2">
             <FiFilm className="h-8 w-8 text-indigo-600" />
             <span className="text-xl font-bold text-gray-900">MoviePortal</span>
           </Link>
@@ -59,35 +60,35 @@ const Navbar = () => {
         </div>
         <div className="navbar-end gap-2">
           {user ? (
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-1 lg:gap-4">
               <div className="tooltip" data-tip={`${user?.displayName}`}>
                 <img
-                  className="w-10 h-10 object-cover rounded-full "
+                  className="w-8 lg:w-10 h-8 lg:h-10 object-cover rounded-full "
                   src={user?.photoURL}
                 ></img>
               </div>
               <button
                 onClick={handleLogOut}
-                className="py-1 px-2 lg:px-4 border border-indigo-600 rounded-lg text-base lg:text-lg font-medium flex items-center gap-1  "
+                className="py-1 px-1 lg:px-4 border border-indigo-600 rounded-lg text-base lg:text-lg font-medium flex items-center gap-1  "
               >
                 <CiLogout />
                 Logout
               </button>
             </div>
           ) : (
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-1 lg:gap-4">
               <Link
                 to="/login"
-                className="py-1 px-2 lg:px-4 border border-indigo-600 rounded-lg text-base lg:text-lg font-medium flex items-center gap-1  "
+                className="py-1 px-1 lg:px-4 border border-indigo-600 rounded-lg text-base lg:text-lg font-medium flex items-center gap-1  "
               >
                 <CiLogin />
                 Login
               </Link>
               <Link
                 to="/register"
-                className="py-1 px-2 lg:px-4 border border-indigo-600 rounded-lg text-base lg:text-lg font-medium flex items-center gap-1"
+                className="py-1 px-1 lg:px-4 border border-indigo-600 rounded-lg text-base lg:text-lg font-medium flex items-center gap-1"
               >
-                <FaUserPlus />
+                <BiUserPlus />
                 Register
               </Link>
             </div>

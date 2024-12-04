@@ -5,6 +5,7 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import { Link } from "react-router-dom";
+import { FaArrowRight } from "react-icons/fa";
 
 const Banner = () => {
   const slides = [
@@ -33,7 +34,7 @@ const Banner = () => {
 
   return (
     <div>
-      <div className="w-full h-[300px] lg:h-[500px] mt-12">
+      <div className="w-full h-[300px] lg:h-[500px] mt-8 lg:mt-12">
         <Swiper
           modules={[Navigation, Pagination, Autoplay]}
           navigation
@@ -60,12 +61,17 @@ const Banner = () => {
                 >
                   <div className="relative z-20 h-full flex items-center justify-center text-center text-white px-4">
                     <div className="max-w-3xl">
-                      <h1 className="text-5xl font-bold mb-4">
+                      <h1 className="text-3xl lg:text-5xl font-bold mb-4">
                         {singleData.title}
                       </h1>
-                      <p className="text-xl mb-8">{singleData.description}</p>
-                      <Link to="/movies">
-                        <button className="btn">Explore Movies</button>
+                      <p className="text-lg lg:text-xl mb-8">
+                        {singleData.description}
+                      </p>
+                      <Link to="/movies" className="hidden lg:block">
+                        <button className="btn bg-indigo-600 hover:bg-indigo-600 flex items-center text-white">
+                          <FaArrowRight />
+                          Explore Movies
+                        </button>
                       </Link>
                     </div>
                   </div>
