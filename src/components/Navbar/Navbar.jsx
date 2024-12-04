@@ -1,9 +1,18 @@
-import { CiLogin } from "react-icons/ci";
+import { useContext } from "react";
+import { CiLogin, CiLogout } from "react-icons/ci";
 import { FaUserPlus } from "react-icons/fa";
 import { FiFilm } from "react-icons/fi";
 import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../../Provider/AuthProvider";
+import toast from "react-hot-toast";
 
 const Navbar = () => {
+  const { user, logOut } = useContext(AuthContext);
+  const handleLogOut = () => {
+    logOut().then(() => {
+      toast.success("Log_out successfully");
+    });
+  };
   return (
     <div className="pt-8">
       <div className="navbar bg-base-100 ">
@@ -49,20 +58,40 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="navbar-end gap-2">
-          <Link
-            to="/login"
-            className="py-2 px-2 lg:px-4 border border-indigo-600 rounded-lg text-base lg:text-lg font-medium flex items-center gap-1  "
-          >
-            <CiLogin />
-            Login
-          </Link>
-          <Link
-            to="/register"
-            className="py-2 px-2 lg:px-4 border border-indigo-600 rounded-lg text-base lg:text-lg font-medium flex items-center gap-1"
-          >
-            <FaUserPlus />
-            Register
-          </Link>
+          {user ? (
+            <div className="flex items-center gap-4">
+              <div className="tooltip" data-tip={`${user?.displayName}`}>
+                <img
+                  className="w-10 h-10 object-cover rounded-full "
+                  src={user?.photoURL}
+                ></img>
+              </div>
+              <button
+                onClick={handleLogOut}
+                className="py-1 px-2 lg:px-4 border border-indigo-600 rounded-lg text-base lg:text-lg font-medium flex items-center gap-1  "
+              >
+                <CiLogout />
+                Logout
+              </button>
+            </div>
+          ) : (
+            <div className="flex items-center gap-4">
+              <Link
+                to="/login"
+                className="py-1 px-2 lg:px-4 border border-indigo-600 rounded-lg text-base lg:text-lg font-medium flex items-center gap-1  "
+              >
+                <CiLogin />
+                Login
+              </Link>
+              <Link
+                to="/register"
+                className="py-1 px-2 lg:px-4 border border-indigo-600 rounded-lg text-base lg:text-lg font-medium flex items-center gap-1"
+              >
+                <FaUserPlus />
+                Register
+              </Link>
+            </div>
+          )}
         </div>
       </div>
     </div>

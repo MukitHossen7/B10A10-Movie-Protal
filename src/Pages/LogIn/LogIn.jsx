@@ -1,10 +1,47 @@
 // import { FcGoogle } from "react-icons/fc";
 // import { Link } from "react-router-dom";
 
+import { useContext, useState } from "react";
+import { FaEyeSlash } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
-import { Link } from "react-router-dom";
+import { IoEyeSharp } from "react-icons/io5";
+import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../Provider/AuthProvider";
+import toast from "react-hot-toast";
 
 const LogIn = () => {
+  const [signToggle, setSignToggle] = useState(false);
+  const { signInExistingUsers, signInWithGoogle } = useContext(AuthContext);
+  const navigate = useNavigate();
+
+  const handleLoginForm = (e) => {
+    e.preventDefault();
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+    console.log(email, password);
+    signInExistingUsers(email, password)
+      .then(() => {
+        e.target.reset();
+        toast.success("Login successful");
+        navigate("/");
+      })
+      .catch(() => {
+        toast.error("Invalid Credential Email/Password");
+      });
+  };
+  const handleToggleSignBtn = () => {
+    setSignToggle(!signToggle);
+  };
+  const handleLoginGoogle = () => {
+    signInWithGoogle()
+      .then(() => {
+        toast.success("Google Login successful");
+        navigate("/");
+      })
+      .catch(() => {
+        toast.error("Google Login failed please try again");
+      });
+  };
   return (
     <div className="pb-16 mt-16 flex items-center justify-center flex-col">
       <div className="relative bg-white bg-opacity-80 border border-indigo-600 rounded-lg p-8 w-full max-w-xl z-10 ">
@@ -17,7 +54,7 @@ const LogIn = () => {
           </p>
         </div>
 
-        <form className="">
+        <form className="" onSubmit={handleLoginForm}>
           <div className="pb-6">
             <label className="block text-sm font-medium text-gray-700">
               Email
@@ -36,12 +73,24 @@ const LogIn = () => {
               Password
             </label>
             <input
-              type="password"
+              type={signToggle ? "text" : "password"}
               name="password"
               placeholder="Enter password"
               className="mt-1 w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-400 focus:outline-none"
               required
             />
+            <button
+              type="button"
+              className="absolute -top-3"
+              onClick={handleToggleSignBtn}
+            >
+              {" "}
+              {signToggle ? (
+                <FaEyeSlash className="absolute right-2 top-12 text-xl" />
+              ) : (
+                <IoEyeSharp className="absolute right-2 top-12 text-xl" />
+              )}
+            </button>
           </div>
 
           <div className="flex items-center justify-between pb-6">
@@ -70,7 +119,10 @@ const LogIn = () => {
         </div>
 
         <div className="mt-6 flex space-x-4">
-          <button className="flex-1 gap-3 flex items-center justify-center text-black py-2 px-4 rounded-full border border-indigo-600   transition duration-200 bg-white">
+          <button
+            onClick={handleLoginGoogle}
+            className="flex-1 gap-3 flex items-center justify-center text-black py-2 px-4 rounded-full border border-indigo-600   transition duration-200 bg-white"
+          >
             <FcGoogle className="text-2xl" />
             Login with Google
           </button>
