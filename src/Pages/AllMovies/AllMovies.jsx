@@ -37,7 +37,7 @@ const AllMovies = () => {
                 <p className="text-gray-600 text-sm mb-1">
                   <strong>Rating:</strong> {movie?.rate}/5 ⭐
                 </p>
-                <Link to="/details">
+                <Link to={`/details/${movie._id}`}>
                   <button
                     to="/details"
                     className="mt-4 w-full bg-indigo-600 text-white font-medium py-2 px-4 rounded hover:bg-indigo-600 transition-colors"

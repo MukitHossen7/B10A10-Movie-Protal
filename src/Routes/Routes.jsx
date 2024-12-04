@@ -39,8 +39,10 @@ const router = createBrowserRouter([
         element: <MyFavorites></MyFavorites>,
       },
       {
-        path: "/details",
+        path: "/details/:id",
         element: <DetailsPage></DetailsPage>,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/movies/${params.id}`),
       },
     ],
   },
