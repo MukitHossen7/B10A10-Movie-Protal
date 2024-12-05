@@ -1,8 +1,10 @@
 import toast from "react-hot-toast";
-import { Link, useLoaderData } from "react-router-dom";
+import { Link, useLoaderData, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const DetailsPage = () => {
   const detail = useLoaderData();
+  const navigate = useNavigate();
   console.log(detail);
   const handleFavorite = () => {
     toast.success("Added to your favorites list");
@@ -26,6 +28,34 @@ const DetailsPage = () => {
     })
       .then((res) => res.json())
       .then((data) => console.log(data));
+  };
+  const handleDelete = (id) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`http://localhost:5000/movies/${id}`, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.deletedCount > 0) {
+              Swal.fire({
+                title: "Deleted!",
+                text: "Your movie has been deleted.",
+                icon: "success",
+              });
+            }
+            navigate("/allMovies");
+          });
+      }
+    });
   };
   return (
     <div className="pb-16 mt-16">
@@ -58,7 +88,10 @@ const DetailsPage = () => {
 
             {/* Action Buttons */}
             <div className="mt-6 flex gap-4">
-              <button className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded">
+              <button
+                onClick={() => handleDelete(detail._id)}
+                className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded"
+              >
                 Delete Movie
               </button>
               <button
