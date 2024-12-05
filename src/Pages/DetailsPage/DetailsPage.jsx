@@ -8,7 +8,6 @@ const DetailsPage = () => {
   const detail = useLoaderData();
   const navigate = useNavigate();
   const { user } = useContext(AuthContext);
-  console.log(detail);
   const handleFavorite = () => {
     toast.success("Added to your favorites list");
     const favorite = {

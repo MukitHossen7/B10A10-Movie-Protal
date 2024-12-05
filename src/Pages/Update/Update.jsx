@@ -5,7 +5,6 @@ import Select from "react-select";
 import Swal from "sweetalert2";
 const Update = () => {
   const updateData = useLoaderData();
-  console.log(updateData);
   const years = [2024, 2023, 2022, 2021, 2020];
   const [genre, setGenre] = useState([]);
   const genres = [
@@ -81,7 +80,6 @@ const Update = () => {
       rate,
       summary,
     };
-    console.log(moviesData);
     fetch(`http://localhost:5000/movies/${updateData._id}`, {
       method: "PATCH",
       headers: {
@@ -91,7 +89,6 @@ const Update = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         if (data.modifiedCount > 0) {
           Swal.fire({
             title: "Successfully updated",

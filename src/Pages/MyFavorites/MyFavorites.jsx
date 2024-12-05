@@ -13,22 +13,33 @@ const MyFavorites = () => {
       .then((res) => res.json())
       .then((data) => setFavorites(data));
   }, [email]);
-  console.log(favorites);
   const handleFavoriteDelete = (id) => {
-    fetch(`http://localhost:5000/favorite/${id}`, {
-      method: "DELETE",
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.deletedCount > 0) {
-          Swal.fire({
-            title: "Successfully deleted",
-            text: "You clicked the button!",
-            icon: "success",
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`http://localhost:5000/favorite/${id}`, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.deletedCount > 0) {
+              Swal.fire({
+                title: "Deleted!",
+                text: "Your movie has been deleted.",
+                icon: "success",
+              });
+              setFavorites(favorites.filter((favorite) => favorite._id !== id));
+            }
           });
-          setFavorites(favorites.filter((favorite) => favorite._id !== id));
-        }
-      });
+      }
+    });
   };
   return (
     <div>

@@ -1,10 +1,15 @@
 import { Link, useLoaderData } from "react-router-dom";
+import Search from "../../components/Search/Search";
+import { useState } from "react";
 
 const AllMovies = () => {
-  const allMovies = useLoaderData();
-  console.log(allMovies);
+  const allMoviesData = useLoaderData();
+  const [allMovies, setAllMovies] = useState(allMoviesData);
   return (
     <div className="mt-8 lg:mt-12 pb-16 ">
+      <div>
+        <Search setAllMovies={setAllMovies}></Search>
+      </div>
       {allMovies.length === 0 ? (
         <div className="text-center font-semibold text-4xl">
           No movies data found.

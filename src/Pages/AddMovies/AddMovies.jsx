@@ -84,8 +84,7 @@ const AddMovies = () => {
       summary,
       email,
     };
-    console.log(moviesData);
-    console.log(genre);
+
     fetch("http://localhost:5000/movies", {
       method: "POST",
       headers: {
@@ -103,7 +102,6 @@ const AddMovies = () => {
             icon: "success",
           });
         }
-        console.log(data);
       });
   };
   return (
