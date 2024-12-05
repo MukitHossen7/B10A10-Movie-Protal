@@ -10,7 +10,9 @@ const Search = ({ setAllMovies }) => {
   };
   return (
     <div className="flex flex-col justify-center items-center gap-4 mb-10">
-      <h2 className="font-semibold text-3xl">Search on Movie Title</h2>
+      <h2 className="font-semibold text-2xl lg:text-3xl">
+        Search on Movie Title
+      </h2>
       <input
         type="text"
         onChange={handleChange}

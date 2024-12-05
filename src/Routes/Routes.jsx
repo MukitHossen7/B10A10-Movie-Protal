@@ -9,11 +9,13 @@ import MyFavorites from "../Pages/MyFavorites/MyFavorites";
 import DetailsPage from "../Pages/DetailsPage/DetailsPage";
 import PrivateRoutes from "./PrivateRoutes";
 import Update from "../Pages/Update/Update";
+import ErrorPage from "../Pages/Error/ErrorPage";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayouts></MainLayouts>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: "/",

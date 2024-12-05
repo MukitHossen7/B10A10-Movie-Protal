@@ -42,7 +42,7 @@ const Navbar = () => {
               <NavLink to="/">Home</NavLink>
               <NavLink to="/allMovies">All Movies</NavLink>
               {user && (
-                <div className="flex items-center gap-3">
+                <div className="flex flex-col  gap-3">
                   <NavLink to="/addMovie">Add Movies</NavLink>
                   <NavLink to="/myFavorites">My Favorites</NavLink>
                 </div>
