@@ -58,8 +58,8 @@ const DetailsPage = () => {
     });
   };
   return (
-    <div className="pb-16 mt-16">
-      <div className="p-6 max-w-6xl mx-auto border border-indigo-600   rounded-lg">
+    <div className="pb-16 mt-16 flex flex-col justify-center items-center">
+      <div className="p-6 max-w-6xl mx-auto border border-indigo-600 rounded-lg">
         <div className="  flex flex-col sm:flex-row gap-6">
           <div className="w-full lg:w-1/2">
             <img
@@ -100,16 +100,23 @@ const DetailsPage = () => {
               >
                 Add to Favorite
               </button>
+              <Link to="/update">
+                <button
+                  onClick={handleFavorite}
+                  className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded"
+                >
+                  Update
+                </button>
+              </Link>
             </div>
           </div>
         </div>
-
-        <Link to="/allMovies">
-          <button className="mt-6 w-full bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded">
-            See All Movies
-          </button>
-        </Link>
       </div>
+      <Link to="/allMovies">
+        <button className="mt-6 text-center bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded">
+          See All Movies
+        </button>
+      </Link>
     </div>
   );
 };

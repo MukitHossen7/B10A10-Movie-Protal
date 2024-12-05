@@ -1,21 +1,15 @@
-import { useContext, useState } from "react";
+import { useState } from "react";
 import toast from "react-hot-toast";
 import { Rating } from "react-simple-star-rating";
-import { AuthContext } from "../../Provider/AuthProvider";
-import Swal from "sweetalert2";
 
-const AddMovies = () => {
+const Update = () => {
   const [rating, setRating] = useState(0);
-  const { user } = useContext(AuthContext);
-  const email = user?.email;
-
   const genres = ["Comedy", "Drama", "Horror", "Action", "Romantic"];
   const years = [2024, 2023, 2022, 2021, 2020];
-
   const handleRating = (rate) => {
     setRating(rate);
   };
-  const handleSubmit = async (e) => {
+  const handleUpdate = (e) => {
     e.preventDefault();
     const poster = e.target.poster.value;
     const title = e.target.title.value;
@@ -58,30 +52,14 @@ const AddMovies = () => {
       releaseYear,
       rate,
       summary,
-      email,
     };
     console.log(moviesData);
-    fetch("http://localhost:5000/movies", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(moviesData),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        e.target.reset();
-        if (data.insertedId) {
-          Swal.fire("Successfully added new movie");
-        }
-        console.log(data);
-      });
   };
   return (
     <div className="pb-16 mt-16">
       <div className="max-w-3xl mx-auto p-6 bg-white rounded shadow-md">
-        <h1 className="text-2xl font-bold text-center mb-4">Add a New Movie</h1>
-        <form onSubmit={handleSubmit} className="space-y-4">
+        <h1 className="text-2xl font-bold text-center mb-4">Update Movie</h1>
+        <form onSubmit={handleUpdate} className="space-y-4">
           <div>
             <label className="block mb-2 font-medium">
               Movie Poster (URL):
@@ -168,4 +146,4 @@ const AddMovies = () => {
   );
 };
 
-export default AddMovies;
+export default Update;

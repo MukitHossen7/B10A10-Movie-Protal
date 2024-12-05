@@ -8,6 +8,7 @@ import Register from "../Pages/Register/Register";
 import MyFavorites from "../Pages/MyFavorites/MyFavorites";
 import DetailsPage from "../Pages/DetailsPage/DetailsPage";
 import PrivateRoutes from "./PrivateRoutes";
+import Update from "../Pages/Update/Update";
 
 const router = createBrowserRouter([
   {
@@ -57,6 +58,14 @@ const router = createBrowserRouter([
         ),
         loader: ({ params }) =>
           fetch(`http://localhost:5000/movies/${params.id}`),
+      },
+      {
+        path: "/update",
+        element: (
+          <PrivateRoutes>
+            <Update></Update>
+          </PrivateRoutes>
+        ),
       },
     ],
   },
