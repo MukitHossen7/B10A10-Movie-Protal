@@ -49,11 +49,11 @@ const MyFavorites = () => {
             No favorite data found.
           </div>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {favorites.map((favorite) => (
               <div
                 key={favorite._id}
-                className="bg-white shadow-md rounded-lg overflow-hidden hover:shadow-lg transition-shadow"
+                className="bg-white shadow-md rounded-lg  hover:shadow-lg  overflow-hidden transition transform hover:scale-105 duration-300"
               >
                 <img
                   src={favorite?.poster}
