@@ -1,6 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+* {
+  @apply transition-colors duration-200;
+}
 a.active {
   color: #4f46e5;
   font-weight: 500;

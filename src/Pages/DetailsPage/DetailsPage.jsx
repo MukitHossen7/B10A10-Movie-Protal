@@ -60,7 +60,7 @@ const DetailsPage = () => {
     });
   };
   return (
-    <div className="pb-16 mt-16 flex flex-col justify-center items-center">
+    <div className="pb-16 pt-16 flex flex-col justify-center items-center">
       <div className="p-6 max-w-6xl mx-auto border border-indigo-600 rounded-lg">
         <div className="  flex flex-col sm:flex-row gap-6">
           <div className="w-full lg:w-1/2">

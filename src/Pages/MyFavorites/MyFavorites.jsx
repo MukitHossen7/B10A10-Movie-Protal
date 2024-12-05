@@ -43,7 +43,7 @@ const MyFavorites = () => {
   };
   return (
     <div>
-      <div className="mt-8 lg:mt-12 pb-16 ">
+      <div className="pt-8 lg:pt-12 pb-16 ">
         {favorites.length === 0 ? (
           <div className="text-center font-semibold text-4xl">
             No favorite data found.

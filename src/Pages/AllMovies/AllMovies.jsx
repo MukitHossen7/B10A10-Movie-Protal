@@ -6,7 +6,7 @@ const AllMovies = () => {
   const allMoviesData = useLoaderData();
   const [allMovies, setAllMovies] = useState(allMoviesData);
   return (
-    <div className="mt-8 lg:mt-12 pb-16 ">
+    <div className="pt-8 lg:pt-12 pb-16 ">
       <div>
         <Search setAllMovies={setAllMovies}></Search>
       </div>

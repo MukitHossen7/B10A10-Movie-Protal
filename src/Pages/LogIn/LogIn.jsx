@@ -8,9 +8,16 @@ import { IoEyeSharp } from "react-icons/io5";
 import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
 import toast from "react-hot-toast";
+import { useForm } from "react-hook-form";
 
 const LogIn = () => {
   const [signToggle, setSignToggle] = useState(false);
+  const {
+    register,
+    handleSubmit,
+
+    formState: { errors },
+  } = useForm();
   const { signInExistingUsers, signInWithGoogle, user } =
     useContext(AuthContext);
   const navigate = useNavigate();
@@ -18,14 +25,12 @@ const LogIn = () => {
   if (user) {
     return <Navigate to={location.state || "/"}></Navigate>;
   }
-  const handleLoginForm = (e) => {
-    e.preventDefault();
-    const email = e.target.email.value;
-    const password = e.target.password.value;
+  const handleLoginForm = (data) => {
+    const email = data.email;
+    const password = data.password;
     console.log(email, password);
     signInExistingUsers(email, password)
       .then(() => {
-        e.target.reset();
         toast.success("Login successful");
         navigate("/");
       })
@@ -47,18 +52,15 @@ const LogIn = () => {
       });
   };
   return (
-    <div className="pb-16 mt-16 flex items-center justify-center flex-col">
-      <div className="relative bg-white bg-opacity-80 border border-indigo-600 rounded-lg p-8 w-full max-w-xl z-10 ">
+    <div className="pb-16 pt-16 flex items-center justify-center flex-col">
+      <div className="relative bg-white  bg-opacity-80 shadow-md rounded-lg p-8 w-full max-w-xl z-10 ">
         <div className="text-center mb-6">
           <h1 className="text-2xl lg:text-3xl font-bold text-gray-800">
-            🎥 Movie Portal
+            Login Form
           </h1>
-          <p className="text-gray-600 text-sm lg:text-base mt-2">
-            Log in to explore, watch, and manage your favorite movies!
-          </p>
         </div>
 
-        <form className="" onSubmit={handleLoginForm}>
+        <form className="" onSubmit={handleSubmit(handleLoginForm)}>
           <div className="pb-6">
             <label className="block text-sm font-medium text-gray-700">
               Email
@@ -68,8 +70,16 @@ const LogIn = () => {
               name="email"
               placeholder="Enter email"
               className="mt-1 w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-400 focus:outline-none"
-              required
+              {...register("email", {
+                required: {
+                  value: true,
+                  message: "Email is required",
+                },
+              })}
             />
+            {errors.email && (
+              <p className="text-red-500 text-xs">{errors.email.message}</p>
+            )}
           </div>
 
           <div className="pb-1 relative">
@@ -81,7 +91,12 @@ const LogIn = () => {
               name="password"
               placeholder="Enter password"
               className="mt-1 w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-400 focus:outline-none"
-              required
+              {...register("password", {
+                required: {
+                  value: true,
+                  message: "Password is required",
+                },
+              })}
             />
             <button
               type="button"
@@ -95,6 +110,9 @@ const LogIn = () => {
                 <IoEyeSharp className="absolute right-2 top-12 text-xl" />
               )}
             </button>
+            {errors.password && (
+              <p className="text-red-500 text-xs">{errors.password.message}</p>
+            )}
           </div>
 
           <div className="flex items-center justify-between pb-6">

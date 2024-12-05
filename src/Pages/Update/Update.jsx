@@ -99,7 +99,7 @@ const Update = () => {
       });
   };
   return (
-    <div className="pb-16 mt-16">
+    <div className="pb-16 pt-16">
       <div className="max-w-3xl mx-auto p-6 bg-white rounded shadow-md">
         <h1 className="text-2xl font-bold text-center mb-4">Update Movie</h1>
         <form onSubmit={handleUpdate} className="space-y-4">

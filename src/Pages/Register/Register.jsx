@@ -86,15 +86,12 @@ const Register = () => {
   };
   return (
     <div>
-      <div className="pb-16 mt-16 flex items-center justify-center flex-col ">
-        <div className="relative bg-white bg-opacity-80 border border-indigo-600 rounded-lg p-8 w-full max-w-xl z-10">
+      <div className="pb-16 pt-16 flex items-center justify-center flex-col ">
+        <div className="relative bg-white bg-opacity-80 shadow-md rounded-lg p-8 w-full max-w-xl z-10">
           <div className="text-center mb-6">
             <h1 className="text-2xl lg:text-3xl font-bold text-gray-800">
-              🎥 Movie Portal
+              Register Form
             </h1>
-            <p className="text-gray-700 text-sm lg:text-base mt-2">
-              Create an account to explore and manage your favorite movies!
-            </p>
           </div>
 
           <form className="" onSubmit={handleRegisterForm}>

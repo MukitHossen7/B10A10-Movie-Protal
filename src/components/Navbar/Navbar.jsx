@@ -6,6 +6,7 @@ import { Link, matchPath, NavLink, useLocation } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
 import toast from "react-hot-toast";
 import { BiUserPlus } from "react-icons/bi";
+import ThemeControl from "../ThemeControl/ThemeControl";
 
 const Navbar = () => {
   const location = useLocation();
@@ -85,6 +86,7 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="navbar-end gap-2">
+          <ThemeControl></ThemeControl>
           {user ? (
             <div className="flex items-center gap-1 lg:gap-4">
               <div className="tooltip" data-tip={`${user?.displayName}`}>
