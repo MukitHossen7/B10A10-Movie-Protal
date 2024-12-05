@@ -1,28 +1,48 @@
 import { useContext, useState } from "react";
 import toast from "react-hot-toast";
-import { Rating } from "react-simple-star-rating";
+
 import { AuthContext } from "../../Provider/AuthProvider";
 import Swal from "sweetalert2";
+import Select from "react-select";
 
 const AddMovies = () => {
-  const [rating, setRating] = useState(0);
   const { user } = useContext(AuthContext);
   const email = user?.email;
-
-  const genres = ["Comedy", "Drama", "Horror", "Action", "Romantic"];
+  const [genre, setGenre] = useState([]);
+  const genres = [
+    {
+      value: "Comedy",
+      label: "Comedy",
+    },
+    {
+      value: "Horror",
+      label: "Horror",
+    },
+    {
+      value: "Action",
+      label: "Action",
+    },
+    {
+      value: "Romantic",
+      label: "Romantic",
+    },
+  ];
   const years = [2024, 2023, 2022, 2021, 2020];
-
-  const handleRating = (rate) => {
-    setRating(rate);
+  const handleGenre = (e) => {
+    if (e) {
+      const generaArray = e.map((options) => options.value);
+      setGenre(generaArray);
+    } else {
+      console.log("no genera");
+    }
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
     const poster = e.target.poster.value;
     const title = e.target.title.value;
-    const genre = e.target.genre.value;
     const duration = parseInt(e.target.duration.value);
     const releaseYear = parseInt(e.target.releaseYear.value);
-    const rate = rating;
+    const rate = parseInt(e.target.rating.value);
     const summary = e.target.summary.value;
 
     if (!poster.startsWith("http")) {
@@ -61,6 +81,7 @@ const AddMovies = () => {
       email,
     };
     console.log(moviesData);
+    console.log(genre);
     fetch("http://localhost:5000/movies", {
       method: "POST",
       headers: {
@@ -104,7 +125,7 @@ const AddMovies = () => {
             />
           </div>
 
-          <div>
+          {/* <div>
             <label className="block mb-2 font-medium">Genre:</label>
             <select name="genre" className="w-full border rounded p-2">
               <option value="">Select a genre</option>
@@ -114,6 +135,17 @@ const AddMovies = () => {
                 </option>
               ))}
             </select>
+          </div> */}
+          <div>
+            <label className="block mb-2 font-medium">Genre:</label>
+            <Select
+              isMulti
+              name="genre"
+              onChange={handleGenre}
+              options={genres}
+              className="basic-multi-select"
+              classNamePrefix="select"
+            />
           </div>
 
           <div>
@@ -140,11 +172,14 @@ const AddMovies = () => {
             </select>
           </div>
 
-          <div className="flex">
+          <div className="">
             <label className="block mb-2 font-medium">Rating:</label>
-            <div className="flex flex-row items-center space-x-2">
-              <Rating onClick={handleRating} initialValue={rating} />
-            </div>
+            <input
+              type="number"
+              name="rating"
+              className="w-full border rounded p-2"
+              placeholder="giver rating"
+            />
           </div>
 
           <div>

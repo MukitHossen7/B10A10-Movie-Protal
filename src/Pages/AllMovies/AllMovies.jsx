@@ -25,9 +25,14 @@ const AllMovies = () => {
                 <h2 className="text-xl font-semibold mb-2 text-gray-800">
                   {movie?.title}
                 </h2>
-                <p className="text-gray-600 text-sm mb-1">
-                  <strong>Genre:</strong> {movie?.genre}
-                </p>
+                <div className="text-gray-600 text-sm mb-1">
+                  <strong>Genre:</strong>{" "}
+                  <ul className="list-disc list-inside ml-4">
+                    {movie?.genre.map((item, idx) => (
+                      <li key={idx}>{item}</li>
+                    ))}
+                  </ul>
+                </div>
                 <p className="text-gray-600 text-sm mb-1">
                   <strong>Duration:</strong> {movie?.duration} mins
                 </p>

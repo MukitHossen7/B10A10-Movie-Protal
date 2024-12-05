@@ -1,10 +1,13 @@
+import { useContext } from "react";
 import toast from "react-hot-toast";
 import { Link, useLoaderData, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import { AuthContext } from "../../Provider/AuthProvider";
 
 const DetailsPage = () => {
   const detail = useLoaderData();
   const navigate = useNavigate();
+  const { user } = useContext(AuthContext);
   console.log(detail);
   const handleFavorite = () => {
     toast.success("Added to your favorites list");
@@ -16,7 +19,7 @@ const DetailsPage = () => {
       releaseYear: detail.releaseYear,
       rate: detail.rate,
       summary: detail.summary,
-      email: detail.email,
+      email: user?.email,
       isFavorite: true,
     };
     fetch("http://localhost:5000/favorite", {
@@ -101,10 +104,7 @@ const DetailsPage = () => {
                 Add to Favorite
               </button>
               <Link to="/update">
-                <button
-                  onClick={handleFavorite}
-                  className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded"
-                >
+                <button className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded">
                   Update
                 </button>
               </Link>
