@@ -97,7 +97,11 @@ const AddMovies = () => {
       .then((data) => {
         e.target.reset();
         if (data.insertedId) {
-          Swal.fire("Successfully added new movie");
+          Swal.fire({
+            title: "Successfully added new movie",
+            text: "You clicked the button!",
+            icon: "success",
+          });
         }
         console.log(data);
       });
@@ -129,51 +133,55 @@ const AddMovies = () => {
             />
           </div>
 
-          <div>
-            <label className="block mb-2 font-medium">Genre:</label>
-            <Select
-              isMulti
-              name="genre"
-              onChange={handleGenre}
-              options={genres}
-              className="basic-multi-select"
-              classNamePrefix="select"
-            />
+          <div className="flex flex-col lg:flex-row gap-6 items-center">
+            <div className="w-full lg:w-1/2">
+              <label className="block mb-2 font-medium">Genre:</label>
+              <Select
+                isMulti
+                name="genre"
+                onChange={handleGenre}
+                options={genres}
+                className="basic-multi-select"
+                classNamePrefix="select"
+              />
+            </div>
+
+            <div className="w-full lg:w-1/2">
+              <label className="block mb-2 font-medium">
+                Duration (minutes):
+              </label>
+              <input
+                type="number"
+                name="duration"
+                className="w-full border rounded p-2"
+                placeholder="Enter duration in minutes"
+              />
+            </div>
           </div>
 
-          <div>
-            <label className="block mb-2 font-medium">
-              Duration (minutes):
-            </label>
-            <input
-              type="number"
-              name="duration"
-              className="w-full border rounded p-2"
-              placeholder="Enter duration in minutes"
-            />
-          </div>
+          <div className="flex flex-col lg:flex-row gap-6 items-center">
+            <div className="w-full lg:w-1/2">
+              <label className="block mb-2 font-medium">Release Year:</label>
+              <select name="releaseYear" className="w-full border rounded p-2">
+                <option value="">Select a year</option>
+                {years.map((year) => (
+                  <option key={year} value={year}>
+                    {year}
+                  </option>
+                ))}
+              </select>
+            </div>
 
-          <div>
-            <label className="block mb-2 font-medium">Release Year:</label>
-            <select name="releaseYear" className="w-full border rounded p-2">
-              <option value="">Select a year</option>
-              {years.map((year) => (
-                <option key={year} value={year}>
-                  {year}
-                </option>
-              ))}
-            </select>
-          </div>
-
-          <div className="">
-            <label className="block mb-2 font-medium">Rating:</label>
-            <input
-              type="number"
-              name="rating"
-              max="5"
-              className="w-full border rounded p-2"
-              placeholder="giver rating"
-            />
+            <div className="w-full lg:w-1/2">
+              <label className="block mb-2 font-medium">Rating:</label>
+              <input
+                type="number"
+                name="rating"
+                max="5"
+                className="w-full border rounded p-2"
+                placeholder="giver rating"
+              />
+            </div>
           </div>
 
           <div>

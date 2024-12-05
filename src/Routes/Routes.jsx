@@ -60,12 +60,14 @@ const router = createBrowserRouter([
           fetch(`http://localhost:5000/movies/${params.id}`),
       },
       {
-        path: "/update",
+        path: "/update/:id",
         element: (
           <PrivateRoutes>
             <Update></Update>
           </PrivateRoutes>
         ),
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/movies/${params.id}`),
       },
     ],
   },

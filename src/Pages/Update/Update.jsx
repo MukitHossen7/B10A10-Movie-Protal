@@ -1,7 +1,11 @@
 import { useState } from "react";
 import toast from "react-hot-toast";
+import { useLoaderData } from "react-router-dom";
 import Select from "react-select";
+import Swal from "sweetalert2";
 const Update = () => {
+  const updateData = useLoaderData();
+  console.log(updateData);
   const years = [2024, 2023, 2022, 2021, 2020];
   const [genre, setGenre] = useState([]);
   const genres = [
@@ -78,11 +82,29 @@ const Update = () => {
       summary,
     };
     console.log(moviesData);
+    fetch(`http://localhost:5000/movies/${updateData._id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(moviesData),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.modifiedCount > 0) {
+          Swal.fire({
+            title: "Successfully updated",
+            text: "You clicked the button!",
+            icon: "success",
+          });
+        }
+      });
   };
   return (
     <div className="pb-16 mt-16">
       <div className="max-w-3xl mx-auto p-6 bg-white rounded shadow-md">
-        <h1 className="text-2xl font-bold text-center mb-4">Add a New Movie</h1>
+        <h1 className="text-2xl font-bold text-center mb-4">Update Movie</h1>
         <form onSubmit={handleUpdate} className="space-y-4">
           <div>
             <label className="block mb-2 font-medium">
@@ -91,6 +113,7 @@ const Update = () => {
             <input
               type="text"
               name="poster"
+              defaultValue={updateData.poster}
               className="w-full border rounded p-2"
               placeholder="Enter image URL"
             />
@@ -101,62 +124,70 @@ const Update = () => {
             <input
               type="text"
               name="title"
+              defaultValue={updateData.title}
               className="w-full border rounded p-2"
               placeholder="Enter movie title"
             />
           </div>
 
-          <div>
-            <label className="block mb-2 font-medium">Genre:</label>
-            <Select
-              isMulti
-              name="genre"
-              onChange={handleGenre}
-              options={genres}
-              className="basic-multi-select"
-              classNamePrefix="select"
-            />
+          <div className="flex flex-col lg:flex-row gap-6 items-center">
+            <div className="w-full lg:w-1/2">
+              <label className="block mb-2 font-medium">Genre:</label>
+              <Select
+                isMulti
+                name="genre"
+                onChange={handleGenre}
+                options={genres}
+                className="basic-multi-select"
+                classNamePrefix="select"
+              />
+            </div>
+
+            <div className="w-full lg:w-1/2">
+              <label className="block mb-2 font-medium">
+                Duration (minutes):
+              </label>
+              <input
+                type="number"
+                defaultValue={updateData.duration}
+                name="duration"
+                className="w-full border rounded p-2"
+                placeholder="Enter duration in minutes"
+              />
+            </div>
           </div>
 
-          <div>
-            <label className="block mb-2 font-medium">
-              Duration (minutes):
-            </label>
-            <input
-              type="number"
-              name="duration"
-              className="w-full border rounded p-2"
-              placeholder="Enter duration in minutes"
-            />
-          </div>
+          <div className="flex flex-col lg:flex-row gap-6 items-center">
+            <div className="w-full lg:w-1/2">
+              <label className="block mb-2 font-medium">Release Year:</label>
+              <select name="releaseYear" className="w-full border rounded p-2">
+                <option value="">Select a year</option>
+                {years.map((year) => (
+                  <option key={year} value={year}>
+                    {year}
+                  </option>
+                ))}
+              </select>
+            </div>
 
-          <div>
-            <label className="block mb-2 font-medium">Release Year:</label>
-            <select name="releaseYear" className="w-full border rounded p-2">
-              <option value="">Select a year</option>
-              {years.map((year) => (
-                <option key={year} value={year}>
-                  {year}
-                </option>
-              ))}
-            </select>
-          </div>
-
-          <div className="">
-            <label className="block mb-2 font-medium">Rating:</label>
-            <input
-              type="number"
-              name="rating"
-              max="5"
-              className="w-full border rounded p-2"
-              placeholder="giver rating"
-            />
+            <div className="w-full lg:w-1/2">
+              <label className="block mb-2 font-medium">Rating:</label>
+              <input
+                type="number"
+                name="rating"
+                defaultValue={updateData.rate}
+                max="5"
+                className="w-full border rounded p-2"
+                placeholder="giver rating"
+              />
+            </div>
           </div>
 
           <div>
             <label className="block mb-2 font-medium">Summary:</label>
             <textarea
               name="summary"
+              defaultValue={updateData.summary}
               className="w-full border rounded p-2"
               placeholder="Enter a short summary"
             ></textarea>
@@ -166,7 +197,7 @@ const Update = () => {
             type="submit"
             className="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600"
           >
-            Add Movie
+            Update Movie
           </button>
         </form>
       </div>
