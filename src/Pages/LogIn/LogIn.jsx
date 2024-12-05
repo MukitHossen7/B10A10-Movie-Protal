@@ -53,23 +53,19 @@ const LogIn = () => {
   };
   return (
     <div className="pb-16 pt-16 flex items-center justify-center flex-col">
-      <div className="relative bg-white  bg-opacity-80 shadow-md rounded-lg p-8 w-full max-w-xl z-10 ">
+      <div className="relative bg-white dark:bg-gray-800/50 dark:text-gray-50  bg-opacity-80 shadow-md rounded-lg p-8 w-full max-w-xl z-10 ">
         <div className="text-center mb-6">
-          <h1 className="text-2xl lg:text-3xl font-bold text-gray-800">
-            Login Form
-          </h1>
+          <h1 className="text-2xl lg:text-3xl font-bold">Login Form</h1>
         </div>
 
         <form className="" onSubmit={handleSubmit(handleLoginForm)}>
           <div className="pb-6">
-            <label className="block text-sm font-medium text-gray-700">
-              Email
-            </label>
+            <label className="block text-sm font-medium">Email</label>
             <input
               type="email"
               name="email"
               placeholder="Enter email"
-              className="mt-1 w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-400 focus:outline-none"
+              className="mt-1 w-full px-4 py-2 border border-gray-300 dark:bg-gray-700 dark:text-white rounded-md focus:ring-2 focus:ring-blue-400 focus:outline-none"
               {...register("email", {
                 required: {
                   value: true,
@@ -83,14 +79,12 @@ const LogIn = () => {
           </div>
 
           <div className="pb-1 relative">
-            <label className="block text-sm font-medium text-gray-700">
-              Password
-            </label>
+            <label className="block text-sm font-medium ">Password</label>
             <input
               type={signToggle ? "text" : "password"}
               name="password"
               placeholder="Enter password"
-              className="mt-1 w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-400 focus:outline-none"
+              className="mt-1 w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-400 focus:outline-none dark:bg-gray-700 dark:text-white"
               {...register("password", {
                 required: {
                   value: true,
@@ -136,7 +130,7 @@ const LogIn = () => {
 
         <div className="my-6 flex items-center">
           <div className="flex-1 border-t border-gray-300"></div>
-          <span className="px-4 text-gray-500 text-sm">OR</span>
+          <span className="px-4  text-sm">OR</span>
           <div className="flex-1 border-t border-gray-300"></div>
         </div>
 
@@ -150,7 +144,7 @@ const LogIn = () => {
           </button>
         </div>
 
-        <p className="mt-6 text-center text-sm text-gray-700">
+        <p className="mt-6 text-center text-sm">
           Dont have an account?{" "}
           <Link
             to="/register"
