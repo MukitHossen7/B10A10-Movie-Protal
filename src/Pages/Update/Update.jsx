@@ -1,22 +1,42 @@
 import { useState } from "react";
 import toast from "react-hot-toast";
-import { Rating } from "react-simple-star-rating";
-
+import Select from "react-select";
 const Update = () => {
-  const [rating, setRating] = useState(0);
-  const genres = ["Comedy", "Drama", "Horror", "Action", "Romantic"];
   const years = [2024, 2023, 2022, 2021, 2020];
-  const handleRating = (rate) => {
-    setRating(rate);
+  const [genre, setGenre] = useState([]);
+  const genres = [
+    {
+      value: "Comedy",
+      label: "Comedy",
+    },
+    {
+      value: "Horror",
+      label: "Horror",
+    },
+    {
+      value: "Action",
+      label: "Action",
+    },
+    {
+      value: "Romantic",
+      label: "Romantic",
+    },
+  ];
+  const handleGenre = (e) => {
+    if (e) {
+      const generaArray = e.map((options) => options.value);
+      setGenre(generaArray);
+    } else {
+      console.log("no genera");
+    }
   };
   const handleUpdate = (e) => {
     e.preventDefault();
     const poster = e.target.poster.value;
     const title = e.target.title.value;
-    const genre = e.target.genre.value;
     const duration = parseInt(e.target.duration.value);
     const releaseYear = parseInt(e.target.releaseYear.value);
-    const rate = rating;
+    const rate = parseInt(e.target.rating.value);
     const summary = e.target.summary.value;
 
     if (!poster.startsWith("http")) {
@@ -27,6 +47,10 @@ const Update = () => {
       toast.error("Movie title must have at least 2 characters.");
       return false;
     }
+    if (genre.length <= 0) {
+      toast.error("Please select genre.");
+      return false;
+    }
     if (!(duration > 60)) {
       toast.error("Duration must be greater than 60 minutes.");
       return false;
@@ -35,7 +59,7 @@ const Update = () => {
       toast.error("Please select a release year.");
       return false;
     }
-    if (!rate) {
+    if (!rate || rate < 0) {
       toast.error("Please select a rating.");
       return false;
     }
@@ -58,7 +82,7 @@ const Update = () => {
   return (
     <div className="pb-16 mt-16">
       <div className="max-w-3xl mx-auto p-6 bg-white rounded shadow-md">
-        <h1 className="text-2xl font-bold text-center mb-4">Update Movie</h1>
+        <h1 className="text-2xl font-bold text-center mb-4">Add a New Movie</h1>
         <form onSubmit={handleUpdate} className="space-y-4">
           <div>
             <label className="block mb-2 font-medium">
@@ -84,14 +108,14 @@ const Update = () => {
 
           <div>
             <label className="block mb-2 font-medium">Genre:</label>
-            <select name="genre" className="w-full border rounded p-2">
-              <option value="">Select a genre</option>
-              {genres.map((genre) => (
-                <option key={genre} value={genre}>
-                  {genre}
-                </option>
-              ))}
-            </select>
+            <Select
+              isMulti
+              name="genre"
+              onChange={handleGenre}
+              options={genres}
+              className="basic-multi-select"
+              classNamePrefix="select"
+            />
           </div>
 
           <div>
@@ -118,11 +142,15 @@ const Update = () => {
             </select>
           </div>
 
-          <div className="flex">
+          <div className="">
             <label className="block mb-2 font-medium">Rating:</label>
-            <div className="flex flex-row items-center space-x-2">
-              <Rating onClick={handleRating} initialValue={rating} />
-            </div>
+            <input
+              type="number"
+              name="rating"
+              max="5"
+              className="w-full border rounded p-2"
+              placeholder="giver rating"
+            />
           </div>
 
           <div>

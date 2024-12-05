@@ -53,6 +53,10 @@ const AddMovies = () => {
       toast.error("Movie title must have at least 2 characters.");
       return false;
     }
+    if (genre.length <= 0) {
+      toast.error("Please select genre.");
+      return false;
+    }
     if (!(duration > 60)) {
       toast.error("Duration must be greater than 60 minutes.");
       return false;
@@ -61,7 +65,7 @@ const AddMovies = () => {
       toast.error("Please select a release year.");
       return false;
     }
-    if (!rate) {
+    if (!rate || rate < 0) {
       toast.error("Please select a rating.");
       return false;
     }
@@ -125,17 +129,6 @@ const AddMovies = () => {
             />
           </div>
 
-          {/* <div>
-            <label className="block mb-2 font-medium">Genre:</label>
-            <select name="genre" className="w-full border rounded p-2">
-              <option value="">Select a genre</option>
-              {genres.map((genre) => (
-                <option key={genre} value={genre}>
-                  {genre}
-                </option>
-              ))}
-            </select>
-          </div> */}
           <div>
             <label className="block mb-2 font-medium">Genre:</label>
             <Select
@@ -177,6 +170,7 @@ const AddMovies = () => {
             <input
               type="number"
               name="rating"
+              max="5"
               className="w-full border rounded p-2"
               placeholder="giver rating"
             />

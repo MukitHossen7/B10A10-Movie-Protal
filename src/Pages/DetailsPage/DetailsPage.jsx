@@ -75,9 +75,14 @@ const DetailsPage = () => {
           {/* Movie Details */}
           <div className="w-full lg:w-1/2">
             <h1 className="text-3xl font-bold text-gray-800">{detail.title}</h1>
-            <p className="text-gray-600 mt-2">
-              <strong>Genre:</strong> {detail.genre}
-            </p>
+            <div className="text-gray-600 mt-2 text-sm mb-1 ">
+              <strong>Genre:</strong>{" "}
+              <ul className="list-disc list-inside ml-4">
+                {detail?.genre.map((item, idx) => (
+                  <li key={idx}>{item} </li>
+                ))}
+              </ul>
+            </div>
             <p className="text-gray-600 mt-2">
               <strong>Duration:</strong> {detail.duration} minutes
             </p>
@@ -85,7 +90,7 @@ const DetailsPage = () => {
               <strong>Release Year:</strong> {detail.releaseYear} Year
             </p>
             <p className="text-gray-600 mt-2">
-              <strong>Rating:</strong> {detail.rate}/5
+              <strong>Rating:</strong> {detail.rate}/5⭐
             </p>
             <p className="text-gray-600 mt-4">{detail.summary}</p>
 
