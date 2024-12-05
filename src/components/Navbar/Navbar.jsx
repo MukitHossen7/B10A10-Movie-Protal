@@ -1,13 +1,31 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { CiLogin, CiLogout } from "react-icons/ci";
 
 import { FiFilm } from "react-icons/fi";
-import { Link, NavLink } from "react-router-dom";
+import { Link, matchPath, NavLink, useLocation } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
 import toast from "react-hot-toast";
 import { BiUserPlus } from "react-icons/bi";
 
 const Navbar = () => {
+  const location = useLocation();
+  useEffect(() => {
+    const title = {
+      "/": "Home || MoviePortal",
+      "/allMovies": "All Movies || MoviePortal",
+      "/addMovie": "Add Movies || MoviePortal",
+      "/myFavorites": "Add Favorites || MoviePortal",
+      "/login": "Log In || MoviePortal",
+      "/register": "Register || MoviePortal",
+    };
+    if (matchPath("/details/:id", location.pathname)) {
+      title[location.pathname] = "Movie Details || MoviePortal";
+    }
+    if (matchPath("/update/:id", location.pathname)) {
+      title[location.pathname] = "Update Movie || MoviePortal";
+    }
+    document.title = title[location.pathname] || "Movie Portal";
+  }, [location]);
   const { user, logOut } = useContext(AuthContext);
   const handleLogOut = () => {
     logOut().then(() => {

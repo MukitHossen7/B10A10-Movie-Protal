@@ -13,7 +13,7 @@ const Home = () => {
   }, []);
 
   return (
-    <div>
+    <div className="pb-16">
       <Banner></Banner>
       <FeaturedMovies allMovies={allMovies}></FeaturedMovies>
     </div>

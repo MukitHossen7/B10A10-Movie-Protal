@@ -5,7 +5,7 @@ const FeaturedMovies = ({ allMovies }) => {
   return (
     <div className="mt-10 lg:mt-14">
       <h3 className="font-semibold text-3xl">Featured Movies</h3>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-10 lg:mt-16">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-10 lg:mt-16 mb-14">
         {allMovies.slice(0, 6).map((movie) => (
           <div
             key={movie._id}
@@ -36,10 +36,10 @@ const FeaturedMovies = ({ allMovies }) => {
               </p>
               <p className="text-sm text-gray-600 mt-1">
                 <strong>Rating: </strong>
-                {movie?.rate} ⭐{" "}
+                {movie?.rate}/5 ⭐{" "}
               </p>
               <Link
-                to={`/movies/${movie.id}`}
+                to={`/details/${movie._id}`}
                 className="block mt-4 text-center px-4 py-2 text-white bg-blue-500 hover:bg-blue-600 rounded shadow-md"
               >
                 See Details
@@ -47,6 +47,14 @@ const FeaturedMovies = ({ allMovies }) => {
             </div>
           </div>
         ))}
+      </div>
+      <div className="flex items-center justify-center">
+        <Link
+          to="/allMovies"
+          className="px-4 py-2 text-white bg-blue-500 hover:bg-blue-600 rounded "
+        >
+          See all movies
+        </Link>
       </div>
     </div>
   );
