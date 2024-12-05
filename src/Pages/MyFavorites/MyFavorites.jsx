@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
-import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const MyFavorites = () => {
   const { user } = useContext(AuthContext);
@@ -14,6 +14,22 @@ const MyFavorites = () => {
       .then((data) => setFavorites(data));
   }, [email]);
   console.log(favorites);
+  const handleFavoriteDelete = (id) => {
+    fetch(`http://localhost:5000/favorite/${id}`, {
+      method: "DELETE",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.deletedCount > 0) {
+          Swal.fire({
+            title: "Successfully deleted",
+            text: "You clicked the button!",
+            icon: "success",
+          });
+          setFavorites(favorites.filter((favorite) => favorite._id !== id));
+        }
+      });
+  };
   return (
     <div>
       <div className="mt-8 lg:mt-12 pb-16 ">
@@ -54,14 +70,12 @@ const MyFavorites = () => {
                   <p className="text-gray-600 text-sm mb-1">
                     <strong>Rating:</strong> {favorite?.rate}/5 ⭐
                   </p>
-                  <Link>
-                    <button
-                      to="/details"
-                      className="mt-4 w-full bg-indigo-600 text-white font-medium py-2 px-4 rounded hover:bg-indigo-600 transition-colors"
-                    >
-                      Delete Favorite
-                    </button>
-                  </Link>
+                  <button
+                    onClick={() => handleFavoriteDelete(favorite._id)}
+                    className="mt-4 w-full bg-indigo-600 text-white font-medium py-2 px-4 rounded hover:bg-indigo-600 transition-colors"
+                  >
+                    Delete Favorite
+                  </button>
                 </div>
               </div>
             ))}
