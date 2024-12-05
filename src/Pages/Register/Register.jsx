@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import { FcGoogle } from "react-icons/fc";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
 import toast from "react-hot-toast";
 import { FaEyeSlash } from "react-icons/fa";
@@ -12,16 +12,20 @@ const Register = () => {
     signInWithGoogle,
     updateUserProfile,
     setRefetch,
+    user,
   } = useContext(AuthContext);
   const [passwordError, setPasswordError] = useState("");
   const [isTerms, setIsTerms] = useState("");
   const [signToggle, setSignToggle] = useState(false);
-
+  const location = useLocation();
   const navigate = useNavigate();
   const minLength = /.{6,}/;
   const hasUpperCase = /[A-Z]/;
   const hasLowerCase = /[a-z]/;
 
+  if (user) {
+    return <Navigate to={location.state || "/"}></Navigate>;
+  }
   const handleRegisterForm = (e) => {
     e.preventDefault();
     const name = e.target.name.value;

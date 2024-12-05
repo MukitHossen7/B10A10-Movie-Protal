@@ -41,8 +41,12 @@ const Navbar = () => {
             >
               <NavLink to="/">Home</NavLink>
               <NavLink to="/allMovies">All Movies</NavLink>
-              <NavLink to="/addMovie">Add Movies</NavLink>
-              <NavLink to="/myFavorites">My Favorites</NavLink>
+              {user && (
+                <div className="flex items-center gap-3">
+                  <NavLink to="/addMovie">Add Movies</NavLink>
+                  <NavLink to="/myFavorites">My Favorites</NavLink>
+                </div>
+              )}
             </ul>
           </div>
           <Link to="/" className="flex items-center space-x-1 lg:space-x-2">
@@ -54,8 +58,12 @@ const Navbar = () => {
           <ul className="menu menu-horizontal px-1 gap-8 text-gray-700 text-base">
             <NavLink to="/">Home</NavLink>
             <NavLink to="/allMovies">All Movies</NavLink>
-            <NavLink to="/addMovie">Add Movie</NavLink>
-            <NavLink to="/myFavorites">My Favorites</NavLink>
+            {user && (
+              <div className="flex items-center gap-8">
+                <NavLink to="/addMovie">Add Movies</NavLink>
+                <NavLink to="/myFavorites">My Favorites</NavLink>
+              </div>
+            )}
           </ul>
         </div>
         <div className="navbar-end gap-2">
