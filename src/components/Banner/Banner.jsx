@@ -67,7 +67,7 @@ const Banner = () => {
                       <p className="text-lg lg:text-xl mb-8">
                         {singleData.description}
                       </p>
-                      <Link to="/movies" className="hidden lg:block">
+                      <Link to="/allMovies" className="hidden lg:block">
                         <button className="btn bg-indigo-600 hover:bg-indigo-600 flex items-center text-white">
                           <FaArrowRight />
                           Explore Movies
