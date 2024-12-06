@@ -23,7 +23,7 @@ const DetailsPage = () => {
       email: user?.email,
       isFavorite: true,
     };
-    fetch("http://localhost:5000/favorite", {
+    fetch("https://server-side-navy.vercel.app/favorite", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -44,7 +44,7 @@ const DetailsPage = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/movies/${id}`, {
+        fetch(`https://server-side-navy.vercel.app/movies/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())

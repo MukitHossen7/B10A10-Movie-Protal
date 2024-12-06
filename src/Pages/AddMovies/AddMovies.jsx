@@ -85,7 +85,7 @@ const AddMovies = () => {
       email,
     };
 
-    fetch("http://localhost:5000/movies", {
+    fetch("https://server-side-navy.vercel.app/movies", {
       method: "POST",
       headers: {
         "content-type": "application/json",

@@ -20,12 +20,12 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
-        loader: () => fetch("http://localhost:5000/movies"),
+        loader: () => fetch("https://server-side-navy.vercel.app/movies"),
       },
       {
         path: "/allMovies",
         element: <AllMovies></AllMovies>,
-        loader: () => fetch("http://localhost:5000/movies"),
+        loader: () => fetch("https://server-side-navy.vercel.app/movies"),
       },
       {
         path: "/addMovie",
@@ -60,7 +60,7 @@ const router = createBrowserRouter([
           </PrivateRoutes>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/movies/${params.id}`),
+          fetch(`https://server-side-navy.vercel.app/movies/${params.id}`),
       },
       {
         path: "/update/:id",
@@ -70,7 +70,7 @@ const router = createBrowserRouter([
           </PrivateRoutes>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/movies/${params.id}`),
+          fetch(`https://server-side-navy.vercel.app/movies/${params.id}`),
       },
     ],
   },

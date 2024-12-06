@@ -80,7 +80,7 @@ const Update = () => {
       rate,
       summary,
     };
-    fetch(`http://localhost:5000/movies/${updateData._id}`, {
+    fetch(`https://server-side-navy.vercel.app/movies/${updateData._id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",

@@ -7,7 +7,7 @@ const MyFavorites = () => {
   const email = user?.email;
   const [favorites, setFavorites] = useState([]);
   useEffect(() => {
-    fetch(`http://localhost:5000/favorite?userEmail=${email}`, {
+    fetch(`https://server-side-navy.vercel.app/favorite?userEmail=${email}`, {
       method: "GET",
     })
       .then((res) => res.json())
@@ -24,7 +24,7 @@ const MyFavorites = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/favorite/${id}`, {
+        fetch(`https://server-side-navy.vercel.app/favorite/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())

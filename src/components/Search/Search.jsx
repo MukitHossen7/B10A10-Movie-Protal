@@ -2,7 +2,7 @@
 const Search = ({ setAllMovies }) => {
   const handleChange = (e) => {
     const title = e.target.value;
-    fetch(`http://localhost:5000/movies?searchParams=${title}`)
+    fetch(`https://server-side-navy.vercel.app/movies?searchParams=${title}`)
       .then((response) => response.json())
       .then((data) => {
         setAllMovies(data);
