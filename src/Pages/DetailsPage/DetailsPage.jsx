@@ -99,16 +99,16 @@ const DetailsPage = () => {
             <div className="mt-6 flex gap-5">
               <button
                 onClick={() => handleDelete(detail._id)}
-                className="border border-indigo-600 px-3 py-2 rounded flex items-center gap-1"
+                className="border border-indigo-600 px-3 text-red-500 py-2 rounded flex items-center gap-1"
               >
                 <MdDeleteForever className="text-xl" />
                 Delete
               </button>
               <button onClick={handleFavorite} className=" ">
-                <FaRegHeart className="text-2xl" />
+                <FaRegHeart className="text-2xl text-pink-500" />
               </button>
               <Link to={`/update/${detail._id}`}>
-                <button className="border border-indigo-600  px-4 py-2 rounded flex items-center gap-1">
+                <button className="border border-indigo-600 text-indigo-600  px-4 py-2 rounded flex items-center gap-1">
                   <MdOutlineSystemUpdateAlt className="text-xl" />
                   Update
                 </button>

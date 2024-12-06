@@ -7,7 +7,7 @@ const MainLayouts = () => {
   return (
     <div>
       <Scroll></Scroll>
-      <div className="dark:bg-gray-800 sticky top-0 z-10">
+      <div className="dark:bg-gray-800 sticky top-0 z-50">
         <Navbar></Navbar>
       </div>
 

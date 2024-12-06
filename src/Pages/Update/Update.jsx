@@ -98,6 +98,7 @@ const Update = () => {
         }
       });
   };
+
   return (
     <div className="pb-16 pt-16">
       <div className="max-w-3xl mx-auto p-6 bg-white dark:bg-gray-800/50 dark:text-white rounded shadow-md">
@@ -130,14 +131,15 @@ const Update = () => {
           <div className="flex flex-col lg:flex-row gap-6 items-center">
             <div className="w-full lg:w-1/2">
               <label className="block mb-2 font-medium">Genre:</label>
-              <Select
-                isMulti
-                name="genre"
-                onChange={handleGenre}
-                options={genres}
-                className="basic-multi-select"
-                classNamePrefix="select"
-              />
+              <div className="dark:bg-gray-700">
+                <Select
+                  isMulti
+                  name="genre"
+                  onChange={handleGenre}
+                  options={genres}
+                  classNamePrefix="react-select"
+                />
+              </div>
             </div>
 
             <div className="w-full lg:w-1/2">

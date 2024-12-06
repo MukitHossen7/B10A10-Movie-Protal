@@ -139,7 +139,7 @@ const AddMovies = () => {
                 name="genre"
                 onChange={handleGenre}
                 options={genres}
-                className="basic-multi-select dark:bg-gray-700 dark:text-gray-50 "
+                classNamePrefix="react-select"
               />
             </div>
 
