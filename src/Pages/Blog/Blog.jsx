@@ -20,7 +20,7 @@ const Blog = () => {
           </div>
         </div>
       </div>
-      <div className="mt-7">
+      <div className="mt-7 flex flex-col lg:flex-row gap-10">
         <div className="w-full lg:w-[65%] flex flex-col gap-7">
           <div className="bg-white dark:bg-gray-800/50 shadow-md rounded-xl">
             <img src={img5} className="rounded-xl"></img>
@@ -106,7 +106,92 @@ const Blog = () => {
             </div>
           </div>
         </div>
-        <div className="w-full lg:w-[30%]"></div>
+        <div className="w-full lg:w-[35%] flex flex-col gap-8">
+          <div className="bg-white dark:bg-gray-800/50 shadow-md rounded-xl px-7 flex py-10 space-x-5">
+            <input
+              type="text"
+              placeholder="Search..."
+              className="input input-bordered w-full max-w-xs py-7 dark:bg-gray-700 rounded-full"
+            />
+            <button className=" bg-indigo-600 py-4 px-5 rounded-full text-white">
+              Search
+            </button>
+          </div>
+          <div className="bg-white dark:bg-gray-800/50 shadow-md rounded-xl py-10 px-7">
+            <h2 className="text-2xl md:text-3xl font-bold">Recent Posts</h2>
+            <div className="divider"></div>
+            <div className="flex flex-col gap-9">
+              <div>
+                <div className="flex items-center gap-6">
+                  <img
+                    src={img5}
+                    alt="image"
+                    className="w-20 h-20 rounded-2xl object-cover"
+                  />
+                  <div>
+                    <h3 className="text-sm md:text-lg font-medium">
+                      Drama Is Life With The Dull Bits Cut Out
+                    </h3>
+                    <p className="text-xs md:text-sm dark:text-gray-400">
+                      Dec 30 ,2024
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <div className="flex items-center gap-6">
+                  <img
+                    src={img4}
+                    alt="image"
+                    className="w-20 h-20 rounded-2xl object-cover"
+                  />
+                  <div>
+                    <h3 className="text-sm md:text-lg font-medium">
+                      Filmmaking Can Give You Everything
+                    </h3>
+                    <p className="text-xs md:text-sm dark:text-gray-400">
+                      Jan 2 ,2025
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <div className="flex items-center gap-6">
+                  <img
+                    src={img3}
+                    alt="image"
+                    className="w-20 h-20 rounded-2xl object-cover"
+                  />
+                  <div>
+                    <h3 className="text-sm md:text-lg font-medium">
+                      I Love Editing. It’s One Of My Favorite.
+                    </h3>
+                    <p className="text-xs md:text-sm dark:text-gray-400">
+                      Jan 10 ,2025
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <div className="flex items-center gap-6">
+                  <img
+                    src={img2}
+                    alt="image"
+                    className="w-20 h-20 rounded-2xl object-cover"
+                  />
+                  <div>
+                    <h3 className="text-sm md:text-lg font-medium">
+                      Filmmaking is a miracle of collaboration.
+                    </h3>
+                    <p className="text-xs md:text-sm dark:text-gray-400">
+                      Feb 10 ,2025
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
