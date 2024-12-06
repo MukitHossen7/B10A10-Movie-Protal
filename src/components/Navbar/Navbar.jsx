@@ -13,6 +13,7 @@ const Navbar = () => {
     const title = {
       "/": "Home || MoviePortal",
       "/allMovies": "All Movies || MoviePortal",
+      "/blog": "Blog || MoviePortal",
       "/addMovie": "Add Movies || MoviePortal",
       "/myFavorites": "Add Favorites || MoviePortal",
       "/login": "Log In || MoviePortal",
@@ -62,6 +63,7 @@ const Navbar = () => {
             >
               <NavLink to="/">Home</NavLink>
               <NavLink to="/allMovies">All Movies</NavLink>
+              <NavLink to="/blog">Blog</NavLink>
               {user && (
                 <div className="flex flex-col gap-3">
                   <NavLink to="/addMovie">Add Movies</NavLink>
@@ -81,6 +83,7 @@ const Navbar = () => {
           <ul className="menu menu-horizontal px-1 gap-8 text-base">
             <NavLink to="/">Home</NavLink>
             <NavLink to="/allMovies">All Movies</NavLink>
+            <NavLink to="/blog">Blog</NavLink>
             {user && (
               <div className="flex items-center gap-8">
                 <NavLink to="/addMovie">Add Movies</NavLink>

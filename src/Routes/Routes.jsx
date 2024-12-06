@@ -10,6 +10,7 @@ import DetailsPage from "../Pages/DetailsPage/DetailsPage";
 import PrivateRoutes from "./PrivateRoutes";
 import Update from "../Pages/Update/Update";
 import ErrorPage from "../Pages/Error/ErrorPage";
+import Blog from "../Pages/Blog/Blog";
 
 const router = createBrowserRouter([
   {
@@ -71,6 +72,10 @@ const router = createBrowserRouter([
         ),
         loader: ({ params }) =>
           fetch(`https://server-side-navy.vercel.app/movies/${params.id}`),
+      },
+      {
+        path: "/blog",
+        element: <Blog></Blog>,
       },
     ],
   },
