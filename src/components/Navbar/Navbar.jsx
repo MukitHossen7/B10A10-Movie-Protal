@@ -71,8 +71,8 @@ const Navbar = () => {
             </ul>
           </div>
           <Link to="/" className="flex items-center space-x-1 lg:space-x-2">
-            <FiFilm className="h-8 w-8 text-indigo-600" />
-            <span className="text-xl lg:text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600">
+            <FiFilm className=" h-6 w-6 lg:h-8 lg:w-8 text-indigo-600" />
+            <span className="text-lg lg:text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600">
               MoviePortal
             </span>
           </Link>
@@ -118,13 +118,15 @@ const Navbar = () => {
                 <CiLogin />
                 Login
               </Link>
-              <Link
-                to="/register"
-                className="py-1 px-1 lg:px-2 border border-indigo-600 rounded-lg text-base lg:text-lg flex items-center gap-1"
-              >
-                <BiUserPlus />
-                Register
-              </Link>
+              <div className="hidden lg:block">
+                <Link
+                  to="/register"
+                  className="py-1 px-1 lg:px-2 border border-indigo-600 rounded-lg text-base lg:text-lg flex items-center gap-1 "
+                >
+                  <BiUserPlus />
+                  Register
+                </Link>
+              </div>
             </div>
           )}
         </div>
