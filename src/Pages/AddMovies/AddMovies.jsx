@@ -106,7 +106,7 @@ const AddMovies = () => {
   };
   return (
     <div className="pb-16 pt-16">
-      <div className="max-w-3xl mx-auto p-6 bg-white rounded shadow-md">
+      <div className="max-w-3xl mx-auto p-6 bg-white dark:bg-slate-800/50 dark:text-gray-50 rounded shadow-md">
         <h1 className="text-2xl font-bold text-center mb-4">Add a New Movie</h1>
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
@@ -116,7 +116,7 @@ const AddMovies = () => {
             <input
               type="text"
               name="poster"
-              className="w-full border rounded p-2"
+              className="w-full border rounded p-2 dark:bg-gray-700 dark:text-gray-50 "
               placeholder="Enter image URL"
             />
           </div>
@@ -126,7 +126,7 @@ const AddMovies = () => {
             <input
               type="text"
               name="title"
-              className="w-full border rounded p-2"
+              className="w-full border rounded p-2 dark:bg-gray-700 dark:text-gray-50"
               placeholder="Enter movie title"
             />
           </div>
@@ -139,8 +139,7 @@ const AddMovies = () => {
                 name="genre"
                 onChange={handleGenre}
                 options={genres}
-                className="basic-multi-select"
-                classNamePrefix="select"
+                className="basic-multi-select dark:bg-gray-700 dark:text-gray-50 "
               />
             </div>
 
@@ -151,7 +150,7 @@ const AddMovies = () => {
               <input
                 type="number"
                 name="duration"
-                className="w-full border rounded p-2"
+                className="w-full border rounded p-2 dark:bg-gray-700 dark:text-gray-50"
                 placeholder="Enter duration in minutes"
               />
             </div>
@@ -160,7 +159,10 @@ const AddMovies = () => {
           <div className="flex flex-col lg:flex-row gap-6 items-center">
             <div className="w-full lg:w-1/2">
               <label className="block mb-2 font-medium">Release Year:</label>
-              <select name="releaseYear" className="w-full border rounded p-2">
+              <select
+                name="releaseYear"
+                className="w-full border rounded p-2 dark:bg-gray-700 dark:text-gray-50"
+              >
                 <option value="">Select a year</option>
                 {years.map((year) => (
                   <option key={year} value={year}>
@@ -176,7 +178,7 @@ const AddMovies = () => {
                 type="number"
                 name="rating"
                 max="5"
-                className="w-full border rounded p-2"
+                className="w-full border rounded p-2 dark:bg-gray-700 dark:text-gray-50"
                 placeholder="giver rating"
               />
             </div>
@@ -186,14 +188,14 @@ const AddMovies = () => {
             <label className="block mb-2 font-medium">Summary:</label>
             <textarea
               name="summary"
-              className="w-full border rounded p-2"
+              className="w-full border rounded p-2 dark:bg-gray-700 dark:text-gray-50"
               placeholder="Enter a short summary"
             ></textarea>
           </div>
 
           <button
             type="submit"
-            className="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600"
+            className="w-full bg-indigo-500 font-semibold text-gray-50 p-2 rounded hover:bg-indigo-600"
           >
             Add Movie
           </button>

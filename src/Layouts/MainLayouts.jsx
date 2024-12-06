@@ -13,7 +13,7 @@ const MainLayouts = () => {
         </div>
       </div>
       <div className="dark:bg-gray-900">
-        <div className="min-h-[calc(100vh-366px)] w-11/12 md:w-11/12 lg:w-11/12 xl:container mx-auto">
+        <div className="min-h-[calc(100vh-389px)] w-11/12 md:w-11/12 lg:w-11/12 xl:container mx-auto">
           <Outlet></Outlet>
         </div>
       </div>

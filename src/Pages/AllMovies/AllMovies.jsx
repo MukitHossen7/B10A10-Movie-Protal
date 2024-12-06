@@ -11,7 +11,7 @@ const AllMovies = () => {
         <Search setAllMovies={setAllMovies}></Search>
       </div>
       {allMovies.length === 0 ? (
-        <div className="text-center font-semibold text-4xl">
+        <div className="text-center font-semibold dark:text-gray-50 text-4xl">
           No movies data found.
         </div>
       ) : (
@@ -19,7 +19,7 @@ const AllMovies = () => {
           {allMovies.map((movie) => (
             <div
               key={movie._id}
-              className="bg-white shadow-md rounded-lg  hover:shadow-lg overflow-hidden transition transform hover:scale-105 duration-300"
+              className="bg-white dark:bg-gray-800/50 dark:text-gray-50 shadow-md rounded-lg  hover:shadow-lg overflow-hidden transition transform hover:scale-105 duration-300"
             >
               <img
                 src={movie?.poster}
@@ -27,30 +27,28 @@ const AllMovies = () => {
                 className="w-full h-64 object-cover"
               ></img>
               <div className="p-4">
-                <h2 className="text-xl font-semibold mb-2 text-gray-800">
-                  {movie?.title}
-                </h2>
-                <div className="text-gray-600 text-sm mb-1">
-                  <strong>Genre:</strong>{" "}
+                <h2 className="text-xl font-semibold mb-2">{movie?.title}</h2>
+                <div className=" text-sm mb-1">
+                  <strong>Genre :</strong>{" "}
                   <ul className="list-disc list-inside ml-4">
                     {movie?.genre.map((item, idx) => (
                       <li key={idx}>{item}</li>
                     ))}
                   </ul>
                 </div>
-                <p className="text-gray-600 text-sm mb-1">
-                  <strong>Duration:</strong> {movie?.duration} mins
+                <p className=" text-sm mb-1">
+                  <strong>Duration :</strong> {movie?.duration} mins
                 </p>
-                <p className="text-gray-600 text-sm mb-1">
-                  <strong>Release Year:</strong> {movie?.releaseYear} Year
+                <p className=" text-sm mb-1">
+                  <strong>Release Year :</strong> {movie?.releaseYear} Year
                 </p>
-                <p className="text-gray-600 text-sm mb-1">
-                  <strong>Rating:</strong> {movie?.rate}/5 ⭐
+                <p className=" text-sm mb-1">
+                  <strong>Rating :</strong> {movie?.rate}/5 ⭐
                 </p>
                 <Link to={`/details/${movie._id}`}>
                   <button
                     to="/details"
-                    className="mt-4 w-full bg-indigo-600 text-white font-medium py-2 px-4 rounded hover:bg-indigo-600 transition-colors"
+                    className="mt-4 w-full bg-indigo-600 text-gray-50 font-medium py-2 px-4 rounded hover:bg-indigo-600 transition-colors"
                   >
                     See Details
                   </button>

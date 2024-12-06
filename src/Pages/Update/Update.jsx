@@ -100,7 +100,7 @@ const Update = () => {
   };
   return (
     <div className="pb-16 pt-16">
-      <div className="max-w-3xl mx-auto p-6 bg-white rounded shadow-md">
+      <div className="max-w-3xl mx-auto p-6 bg-white dark:bg-gray-800/50 dark:text-white rounded shadow-md">
         <h1 className="text-2xl font-bold text-center mb-4">Update Movie</h1>
         <form onSubmit={handleUpdate} className="space-y-4">
           <div>
@@ -111,7 +111,7 @@ const Update = () => {
               type="text"
               name="poster"
               defaultValue={updateData.poster}
-              className="w-full border rounded p-2"
+              className="w-full border rounded p-2 dark:bg-gray-700 dark:text-white"
               placeholder="Enter image URL"
             />
           </div>
@@ -122,7 +122,7 @@ const Update = () => {
               type="text"
               name="title"
               defaultValue={updateData.title}
-              className="w-full border rounded p-2"
+              className="w-full border rounded p-2 dark:bg-gray-700 dark:text-white"
               placeholder="Enter movie title"
             />
           </div>
@@ -148,7 +148,7 @@ const Update = () => {
                 type="number"
                 defaultValue={updateData.duration}
                 name="duration"
-                className="w-full border rounded p-2"
+                className="w-full border rounded p-2 dark:bg-gray-700 dark:text-white"
                 placeholder="Enter duration in minutes"
               />
             </div>
@@ -157,7 +157,10 @@ const Update = () => {
           <div className="flex flex-col lg:flex-row gap-6 items-center">
             <div className="w-full lg:w-1/2">
               <label className="block mb-2 font-medium">Release Year:</label>
-              <select name="releaseYear" className="w-full border rounded p-2">
+              <select
+                name="releaseYear"
+                className="w-full border rounded p-2 dark:bg-gray-700 dark:text-white"
+              >
                 <option value="">Select a year</option>
                 {years.map((year) => (
                   <option key={year} value={year}>
@@ -174,7 +177,7 @@ const Update = () => {
                 name="rating"
                 defaultValue={updateData.rate}
                 max="5"
-                className="w-full border rounded p-2"
+                className="w-full border rounded p-2 dark:bg-gray-700 dark:text-white"
                 placeholder="giver rating"
               />
             </div>
@@ -185,14 +188,14 @@ const Update = () => {
             <textarea
               name="summary"
               defaultValue={updateData.summary}
-              className="w-full border rounded p-2"
+              className="w-full border rounded p-2 dark:bg-gray-700 dark:text-white"
               placeholder="Enter a short summary"
             ></textarea>
           </div>
 
           <button
             type="submit"
-            className="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600"
+            className="w-full bg-indigo-600 font-semibold text-white p-2 rounded hover:bg-indigo-600"
           >
             Update Movie
           </button>

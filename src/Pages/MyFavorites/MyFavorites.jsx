@@ -45,7 +45,7 @@ const MyFavorites = () => {
     <div>
       <div className="pt-8 lg:pt-12 pb-16 ">
         {favorites.length === 0 ? (
-          <div className="text-center font-semibold text-4xl">
+          <div className="text-center font-semibold dark:text-gray-50 text-4xl">
             No favorite data found.
           </div>
         ) : (
@@ -53,7 +53,7 @@ const MyFavorites = () => {
             {favorites.map((favorite) => (
               <div
                 key={favorite._id}
-                className="bg-white shadow-md rounded-lg  hover:shadow-lg  overflow-hidden transition transform hover:scale-105 duration-300"
+                className="bg-white dark:bg-gray-800/50 dark:text-gray-50 shadow-md rounded-lg  hover:shadow-lg  overflow-hidden transition transform hover:scale-105 duration-300"
               >
                 <img
                   src={favorite?.poster}
@@ -61,10 +61,10 @@ const MyFavorites = () => {
                   className="w-full h-64 object-cover"
                 ></img>
                 <div className="p-4">
-                  <h2 className="text-xl font-semibold mb-2 text-gray-800">
+                  <h2 className="text-xl font-semibold mb-2 ">
                     {favorite?.title}
                   </h2>
-                  <div className="text-gray-600 mt-2 text-sm mb-1 ">
+                  <div className=" mt-2 text-sm mb-1 ">
                     <strong>Genre:</strong>{" "}
                     <ul className="list-disc list-inside ml-4">
                       {favorite?.genre.map((item, idx) => (
@@ -72,18 +72,18 @@ const MyFavorites = () => {
                       ))}
                     </ul>
                   </div>
-                  <p className="text-gray-600 text-sm mb-1">
+                  <p className=" text-sm mb-1">
                     <strong>Duration:</strong> {favorite?.duration} mins
                   </p>
-                  <p className="text-gray-600 text-sm mb-1">
+                  <p className="text-sm mb-1">
                     <strong>Release Year:</strong> {favorite?.releaseYear} Year
                   </p>
-                  <p className="text-gray-600 text-sm mb-1">
+                  <p className=" text-sm mb-1">
                     <strong>Rating:</strong> {favorite?.rate}/5 ⭐
                   </p>
                   <button
                     onClick={() => handleFavoriteDelete(favorite._id)}
-                    className="mt-4 w-full bg-indigo-600 text-white font-medium py-2 px-4 rounded hover:bg-indigo-600 transition-colors"
+                    className="mt-4 w-full bg-indigo-600 text-gray-50 font-medium py-2 px-4 rounded hover:bg-indigo-600 transition-colors"
                   >
                     Delete Favorite
                   </button>

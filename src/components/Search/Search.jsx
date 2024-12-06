@@ -9,15 +9,15 @@ const Search = ({ setAllMovies }) => {
       });
   };
   return (
-    <div className="flex flex-col justify-center items-center gap-4 mb-10">
+    <div className="flex flex-col justify-center dark:text-gray-50 items-center gap-4 mb-10">
       <h2 className="font-semibold text-2xl lg:text-3xl">
         Search on Movie Title
       </h2>
       <input
         type="text"
         onChange={handleChange}
-        placeholder="search........"
-        className="input input-bordered w-full max-w-xs"
+        placeholder="search.."
+        className="input input-bordered w-full max-w-xs dark:bg-gray-700 dark:text-white border-gray-300 border"
       />
     </div>
   );

@@ -87,60 +87,50 @@ const Register = () => {
   return (
     <div>
       <div className="pb-16 pt-16 flex items-center justify-center flex-col ">
-        <div className="relative bg-white bg-opacity-80 shadow-md rounded-lg p-8 w-full max-w-xl z-10">
+        <div className="relative bg-white dark:bg-gray-800/50 dark:text-gray-50 bg-opacity-80 shadow-md rounded-lg p-8 w-full max-w-xl z-10">
           <div className="text-center mb-6">
-            <h1 className="text-2xl lg:text-3xl font-bold text-gray-800">
-              Register Form
-            </h1>
+            <h1 className="text-2xl lg:text-3xl font-bold">Register Form</h1>
           </div>
 
           <form className="" onSubmit={handleRegisterForm}>
             <div className="pb-6">
-              <label className="block text-sm font-medium text-gray-700">
-                Name
-              </label>
+              <label className="block text-sm font-medium ">Name</label>
               <input
                 type="text"
                 name="name"
                 placeholder="Enter your name"
-                className="mt-1 w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-400 focus:outline-none"
+                className="mt-1 w-full px-4 py-2 border border-gray-300 dark:bg-gray-700 dark:text-white rounded-md focus:ring-2 focus:ring-blue-400 focus:outline-none"
                 required
               />
             </div>
             <div className="pb-6">
-              <label className="block text-sm font-medium text-gray-700">
-                Photo URL
-              </label>
+              <label className="block text-sm font-medium">Photo URL</label>
               <input
                 type="text"
                 name="photo"
                 placeholder="Photo URL"
-                className="mt-1 w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-400 focus:outline-none"
+                className="mt-1 w-full px-4 py-2 border border-gray-300 dark:bg-gray-700 dark:text-white rounded-md focus:ring-2 focus:ring-blue-400 focus:outline-none"
                 required
               />
             </div>
             <div className="pb-6">
-              <label className="block text-sm font-medium text-gray-700">
-                Email
-              </label>
+              <label className="block text-sm font-medium">Email</label>
               <input
                 type="email"
                 name="email"
                 placeholder="Enter email"
-                className="mt-1 w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-400 focus:outline-none"
+                className="mt-1 w-full px-4 py-2 border border-gray-300 dark:bg-gray-700 dark:text-white  rounded-md focus:ring-2 focus:ring-blue-400 focus:outline-none"
                 required
               />
             </div>
 
             <div className="pb-3 relative">
-              <label className="block text-sm font-medium text-gray-700">
-                Password
-              </label>
+              <label className="block text-sm font-medium ">Password</label>
               <input
                 type={signToggle ? "text" : "password"}
                 name="password"
                 placeholder="Enter password"
-                className="mt-1 w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-400 focus:outline-none"
+                className="mt-1 w-full px-4 py-2 border border-gray-300 dark:bg-gray-700 dark:text-white rounded-md focus:ring-2 focus:ring-blue-400 focus:outline-none"
                 required
               />
               <button
@@ -168,7 +158,7 @@ const Register = () => {
                 <input
                   type="checkbox"
                   name="terms"
-                  className="checkbox  w-5 h-5"
+                  className="checkbox  w-5 h-5 dark:text-white dark:bg-gray-500"
                 />
                 <p className="text-xs font-medium ">
                   You agree to the{" "}
@@ -199,21 +189,21 @@ const Register = () => {
 
           <div className="my-6 flex items-center">
             <div className="flex-1 border-t border-gray-300"></div>
-            <span className="px-4 text-gray-500 text-sm">OR</span>
+            <span className="px-4  text-sm">OR</span>
             <div className="flex-1 border-t border-gray-300"></div>
           </div>
 
           <div className="mt-6 flex space-x-4">
             <button
               onClick={handleSignUpGoogle}
-              className="flex-1 gap-3 flex items-center justify-center text-black py-2 px-4 rounded-full border border-indigo-600   transition duration-200 bg-white"
+              className="flex-1 gap-3 flex items-center justify-center text-black py-2 px-4 rounded-full border border-indigo-600   transition duration-200 bg-white "
             >
               <FcGoogle className="text-2xl" />
               Register with Google
             </button>
           </div>
 
-          <p className="mt-6 text-center text-sm text-gray-700">
+          <p className="mt-6 text-center text-sm">
             Already have an account?{" "}
             <Link
               to="/login"

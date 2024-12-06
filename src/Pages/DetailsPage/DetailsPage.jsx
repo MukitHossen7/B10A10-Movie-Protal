@@ -61,37 +61,37 @@ const DetailsPage = () => {
   };
   return (
     <div className="pb-16 pt-16 flex flex-col justify-center items-center">
-      <div className="p-6 max-w-6xl mx-auto border border-indigo-600 rounded-lg">
+      <div className="p-6 max-w-6xl mx-auto bg-white dark:bg-gray-800/50 dark:text-gray-50 bg-opacity-80 shadow-md rounded-lg">
         <div className="  flex flex-col sm:flex-row gap-6">
           <div className="w-full lg:w-1/2">
             <img
               src={detail.poster}
               alt="hello"
-              className="w-full rounded-lg"
+              className="w-full h-[400px] rounded-lg"
             />
           </div>
 
           {/* Movie Details */}
           <div className="w-full lg:w-1/2">
-            <h1 className="text-3xl font-bold text-gray-800">{detail.title}</h1>
-            <div className="text-gray-600 mt-2 text-sm mb-1 ">
-              <strong>Genre:</strong>{" "}
+            <h1 className="text-3xl font-bold">{detail.title}</h1>
+            <div className="mt-2 text-sm mb-1 ">
+              <strong>Genre :</strong>{" "}
               <ul className="list-disc list-inside ml-4">
                 {detail?.genre.map((item, idx) => (
                   <li key={idx}>{item} </li>
                 ))}
               </ul>
             </div>
-            <p className="text-gray-600 mt-2">
-              <strong>Duration:</strong> {detail.duration} minutes
+            <p className="mt-2">
+              <strong>Duration :</strong> {detail.duration} minutes
             </p>
-            <p className="text-gray-600 mt-2">
-              <strong>Release Year:</strong> {detail.releaseYear} Year
+            <p className="mt-2">
+              <strong>Release Year :</strong> {detail.releaseYear} Year
             </p>
-            <p className="text-gray-600 mt-2">
-              <strong>Rating:</strong> {detail.rate}/5⭐
+            <p className=" mt-2">
+              <strong>Rating :</strong> {detail.rate}/5⭐
             </p>
-            <p className="text-gray-600 mt-4">{detail.summary}</p>
+            <p className=" mt-4">{detail.summary}</p>
 
             {/* Action Buttons */}
             <div className="mt-6 flex gap-4">
@@ -117,7 +117,7 @@ const DetailsPage = () => {
         </div>
       </div>
       <Link to="/allMovies">
-        <button className="mt-6 text-center bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded">
+        <button className="mt-10 text-center font-semibold bg-indigo-500 hover:bg-indigo-600 text-white px-4 py-2 rounded">
           See All Movies
         </button>
       </Link>

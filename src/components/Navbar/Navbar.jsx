@@ -34,8 +34,8 @@ const Navbar = () => {
     });
   };
   return (
-    <div className="pt-8">
-      <div className="navbar bg-base-100 ">
+    <div className="pt-8 sticky top-0">
+      <div className="navbar  dark:bg-gray-800/50 dark:text-white ">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -70,7 +70,9 @@ const Navbar = () => {
           </div>
           <Link to="/" className="flex items-center space-x-1 lg:space-x-2">
             <FiFilm className="h-8 w-8 text-indigo-600" />
-            <span className="text-xl font-bold text-gray-900">MoviePortal</span>
+            <span className="text-xl lg:text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600">
+              MoviePortal
+            </span>
           </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
