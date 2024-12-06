@@ -3,6 +3,8 @@ import toast from "react-hot-toast";
 import { Link, useLoaderData, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../Provider/AuthProvider";
+import { MdDeleteForever, MdOutlineSystemUpdateAlt } from "react-icons/md";
+import { FaRegHeart } from "react-icons/fa";
 
 const DetailsPage = () => {
   const detail = useLoaderData();
@@ -94,21 +96,20 @@ const DetailsPage = () => {
             <p className=" mt-4">{detail.summary}</p>
 
             {/* Action Buttons */}
-            <div className="mt-6 flex gap-4">
+            <div className="mt-6 flex gap-5">
               <button
                 onClick={() => handleDelete(detail._id)}
-                className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded"
+                className="border border-indigo-600 px-3 py-2 rounded flex items-center gap-1"
               >
-                Delete Movie
+                <MdDeleteForever className="text-xl" />
+                Delete
               </button>
-              <button
-                onClick={handleFavorite}
-                className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded"
-              >
-                Add to Favorite
+              <button onClick={handleFavorite} className=" ">
+                <FaRegHeart className="text-2xl" />
               </button>
               <Link to={`/update/${detail._id}`}>
-                <button className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded">
+                <button className="border border-indigo-600  px-4 py-2 rounded flex items-center gap-1">
+                  <MdOutlineSystemUpdateAlt className="text-xl" />
                   Update
                 </button>
               </Link>

@@ -56,7 +56,7 @@ const Navbar = () => {
             </div>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content bg-base-100 rounded-box mt-3 w-52 p-2 shadow gap-3 z-50  text-gray-700 text-base"
+              className="menu menu-sm dropdown-content bg-base-100 rounded-box mt-3 w-52 p-2 shadow gap-3 z-50 text-base"
             >
               <NavLink to="/">Home</NavLink>
               <NavLink to="/allMovies">All Movies</NavLink>
@@ -76,7 +76,7 @@ const Navbar = () => {
           </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1 gap-8 text-gray-700 text-base">
+          <ul className="menu menu-horizontal px-1 gap-8  text-base">
             <NavLink to="/">Home</NavLink>
             <NavLink to="/allMovies">All Movies</NavLink>
             {user && (

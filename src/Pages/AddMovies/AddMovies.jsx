@@ -116,7 +116,7 @@ const AddMovies = () => {
             <input
               type="text"
               name="poster"
-              className="w-full border rounded p-2 dark:bg-gray-700 dark:text-gray-50 "
+              className="w-full border rounded p-2 dark:bg-gray-700 dark:text-gray-50"
               placeholder="Enter image URL"
             />
           </div>

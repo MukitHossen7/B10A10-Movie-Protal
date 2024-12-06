@@ -9,7 +9,11 @@ const Footer = () => {
         <div className="container mx-auto px-4 ">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8  text-center lg:text-start">
             <div>
-              <h2 className="text-2xl font-bold">Movie Portal</h2>
+              <h2 className="">
+                <span className="text-xl lg:text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600">
+                  MoviePortal
+                </span>
+              </h2>
               <p className="text-sm mt-2">
                 Explore, manage, and save your favorite movies effortlessly. A
                 hub for movie lovers.
