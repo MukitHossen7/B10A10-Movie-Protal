@@ -54,8 +54,8 @@ const Footer = () => {
 
             <div>
               <h3 className="text-lg font-semibold">Contact Us</h3>
-              <p className="mt-3 text-sm">Email: mdmukit.dev@gmail.com</p>
-              <p className="text-sm">Phone: +8801326153447</p>
+              <p className="mt-3 text-sm">Email: mdprogrammer.dev@gmail.com</p>
+              <p className="text-sm">Phone: +8801386153047</p>
               <div className="flex space-x-4 mt-3">
                 <a
                   href="#"
