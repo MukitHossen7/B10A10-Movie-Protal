@@ -173,7 +173,7 @@ const Update = () => {
             </div>
 
             <div className="w-full lg:w-1/2">
-              <label className="block mb-2 font-medium">Rating:</label>
+              <label className="block mb-2 font-medium">Rating (1-5):</label>
               <input
                 type="number"
                 name="rating"

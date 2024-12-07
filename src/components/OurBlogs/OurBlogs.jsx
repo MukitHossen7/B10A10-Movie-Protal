@@ -4,7 +4,7 @@ import blogsImg2 from "../../assets/pexels-mediocrememories-1117132.jpg";
 import blogsImg3 from "../../assets/pexels-solliefoto-320617.jpg";
 const OurBlogs = () => {
   return (
-    <div className="mt-14 lg:mt-20">
+    <div className="mt-14 lg:mt-20 flex flex-col items-center">
       <div className="flex flex-col items-center text-center">
         <h2 className="font-semibold text-xl lg:text-3xl dark:text-white">
           Our Blogs
@@ -92,6 +92,14 @@ const OurBlogs = () => {
               </div>
             </div>
           </article>
+        </Link>
+      </div>
+      <div className="mt-12">
+        <Link
+          to="/blog"
+          className="bg-indigo-600 text-white px-5 py-3 rounded-md"
+        >
+          See All Blogs
         </Link>
       </div>
     </div>
