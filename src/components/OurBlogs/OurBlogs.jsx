@@ -27,21 +27,16 @@ const OurBlogs = () => {
 
             <div className="relative bg-gradient-to-t from-gray-900/50 to-gray-900/25 pt-32 sm:pt-48 lg:pt-64">
               <div className="p-4 sm:p-6">
-                {/* <time datetime="2022-10-10" className="block text-xs text-white/90"> 10th Oct 2022 </time> */}
-
                 <a href="#">
                   <h3 className="mt-0.5 text-lg text-white">
-                    How to position your furniture for positivity
+                    Lights, Camera, Action
                   </h3>
                 </a>
 
                 <p className="mt-2 line-clamp-3 text-sm/relaxed text-white/95">
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Recusandae dolores, possimus pariatur animi temporibus
-                  nesciunt praesentium dolore sed nulla ipsum eveniet corporis
-                  quidem, mollitia itaque minus soluta, voluptates neque
-                  explicabo tempora nisi culpa eius atque dignissimos. Molestias
-                  explicabo corporis voluptatem?
+                  The iconic clapperboard marks the start of another cinematic
+                  journey. With the director’s touch and the camera rolling, the
+                  magic of filmmaking begins.
                 </p>
               </div>
             </div>
@@ -59,17 +54,15 @@ const OurBlogs = () => {
               <div className="p-4 sm:p-6">
                 <a href="#">
                   <h3 className="mt-0.5 text-lg text-white">
-                    How to position your furniture for positivity
+                    The Directors Lens
                   </h3>
                 </a>
 
                 <p className="mt-2 line-clamp-3 text-sm/relaxed text-white/95">
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Recusandae dolores, possimus pariatur animi temporibus
-                  nesciunt praesentium dolore sed nulla ipsum eveniet corporis
-                  quidem, mollitia itaque minus soluta, voluptates neque
-                  explicabo tempora nisi culpa eius atque dignissimos. Molestias
-                  explicabo corporis voluptatem?
+                  Capturing moments through the directors eye, this image
+                  illustrates the magic of storytelling as seen from the
+                  camera’s perspective. Every frame tells a story, bringing life
+                  to the creative vision.
                 </p>
               </div>
             </div>
@@ -87,17 +80,14 @@ const OurBlogs = () => {
               <div className="p-4 sm:p-6">
                 <a href="#">
                   <h3 className="mt-0.5 text-lg text-white">
-                    How to position your furniture for positivity
+                    Focus on Creativity
                   </h3>
                 </a>
 
                 <p className="mt-2 line-clamp-3 text-sm/relaxed text-white/95">
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Recusandae dolores, possimus pariatur animi temporibus
-                  nesciunt praesentium dolore sed nulla ipsum eveniet corporis
-                  quidem, mollitia itaque minus soluta, voluptates neque
-                  explicabo tempora nisi culpa eius atque dignissimos. Molestias
-                  explicabo corporis voluptatem?
+                  A close-up of the lens reminds us that creativity starts here.
+                  This image symbolizes the filmmakers commitment to detail,
+                  capturing every frame with precision and passion.
                 </p>
               </div>
             </div>

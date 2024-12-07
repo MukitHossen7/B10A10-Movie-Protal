@@ -1,4 +1,4 @@
-import blogBanner from "../../assets/img1.jpg";
+import blogBanner from "../../assets/blogBanner.jpeg";
 import img3 from "../../assets/img3.jpg";
 import img4 from "../../assets/img4.jpg";
 import img5 from "../../assets/img5.jpg";

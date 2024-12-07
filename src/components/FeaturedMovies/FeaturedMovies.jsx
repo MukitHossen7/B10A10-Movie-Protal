@@ -16,7 +16,7 @@ const FeaturedMovies = ({ allMovies }) => {
             <img
               src={movie?.poster}
               alt="poster"
-              className="w-full h-48 object-cover"
+              className="w-full h-64 object-cover"
             />
             <div className="p-4">
               <h2 className="text-xl font-semibold">{movie?.title}</h2>
