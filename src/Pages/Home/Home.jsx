@@ -3,6 +3,7 @@ import Banner from "../../components/Banner/Banner";
 import FeaturedMovies from "../../components/FeaturedMovies/FeaturedMovies";
 import { useEffect, useState } from "react";
 import TrailersMovies from "../../components/TrailersMovies/TrailersMovies";
+import OurBlogs from "../../components/OurBlogs/OurBlogs";
 
 const Home = () => {
   const movieDate = useLoaderData();
@@ -18,6 +19,7 @@ const Home = () => {
       <Banner></Banner>
       <FeaturedMovies allMovies={allMovies}></FeaturedMovies>
       <TrailersMovies></TrailersMovies>
+      <OurBlogs></OurBlogs>
     </div>
   );
 };
