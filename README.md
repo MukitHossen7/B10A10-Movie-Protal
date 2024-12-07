@@ -59,7 +59,7 @@
 - Express.js,
 - MongoDB
 
-## Authentication:
+### Authentication:
 
 -Firebase (Email/Password, Google Auth)
 
