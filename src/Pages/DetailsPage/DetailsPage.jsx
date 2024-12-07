@@ -69,7 +69,7 @@ const DetailsPage = () => {
             <img
               src={detail.poster}
               alt="hello"
-              className="w-full h-[400px] rounded-lg"
+              className="w-full h-[300px] lg:h-[400px] rounded-lg"
             />
           </div>
 

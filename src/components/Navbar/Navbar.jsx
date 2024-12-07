@@ -106,7 +106,7 @@ const Navbar = () => {
               </div>
               <button
                 onClick={handleLogOut}
-                className="py-1 px-1 lg:px-2 border border-indigo-600 rounded-lg text-base lg:text-lg flex items-center gap-1"
+                className="py-1 px-2 lg:px-2 border border-indigo-600 rounded-lg text-base lg:text-lg flex items-center gap-1"
               >
                 <CiLogout />
                 Logout
@@ -116,7 +116,7 @@ const Navbar = () => {
             <div className="flex items-center gap-1 lg:gap-4">
               <Link
                 to="/login"
-                className="py-1 px-1 lg:px-2 border border-indigo-600 rounded-lg text-base lg:text-lg flex items-center gap-1"
+                className="py-1 px-2 lg:px-2 border border-indigo-600 rounded-lg text-base lg:text-lg flex items-center gap-1"
               >
                 <CiLogin />
                 Login
@@ -124,7 +124,7 @@ const Navbar = () => {
               <div className="hidden lg:block">
                 <Link
                   to="/register"
-                  className="py-1 px-1 lg:px-2 border border-indigo-600 rounded-lg text-base lg:text-lg flex items-center gap-1 "
+                  className="py-1 px-2 lg:px-2 border border-indigo-600 rounded-lg text-base lg:text-lg flex items-center gap-1 "
                 >
                   <BiUserPlus />
                   Register
