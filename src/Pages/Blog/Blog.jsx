@@ -191,6 +191,59 @@ const Blog = () => {
               </div>
             </div>
           </div>
+          <div className="bg-white dark:bg-gray-800/50 shadow-md rounded-xl py-10 px-7">
+            <h2 className="text-2xl md:text-3xl font-bold">Categories</h2>
+            <div className="divider"></div>
+            <ul className="list-disc text-xl space-y-2 list-inside">
+              <li>Accessories</li>
+              <li>Body Parts</li>
+              <li>Engine & Drivetrain</li>
+              <li>Helmet</li>
+              <li>Interior Parts</li>
+            </ul>
+          </div>
+          <div className="bg-white dark:bg-gray-800/50 shadow-md rounded-xl py-10 px-7">
+            <h2 className="text-2xl md:text-3xl font-bold">Tags</h2>
+            <div className="divider"></div>
+            <div className="flex flex-wrap gap-3">
+              <button className="px-3 py-1 rounded-full bg-gray-300 dark:bg-black/50 dark:text-gray-300">
+                Air Filters
+              </button>
+              <button className="px-3 py-1 rounded-full bg-gray-300 dark:bg-black/50 dark:text-gray-300">
+                Brake Discs
+              </button>
+              <button className="px-3 py-1 rounded-full bg-gray-300 dark:bg-black/50 dark:text-gray-300">
+                Bumpers
+              </button>
+              <button className="px-3 py-1 rounded-full bg-gray-300 dark:bg-black/50 dark:text-gray-300">
+                Car Care
+              </button>
+              <button className="px-3 py-1 rounded-full bg-gray-300 dark:bg-black/50 dark:text-gray-300">
+                Car Covers
+              </button>
+              <button className="px-3 py-1 rounded-full bg-gray-300 dark:bg-black/50 dark:text-gray-300">
+                Cargo Accessories
+              </button>
+              <button className="px-3 py-1 rounded-full bg-gray-300 dark:bg-black/50 dark:text-gray-300">
+                Consoles & Organizers
+              </button>
+              <button className="px-3 py-1 rounded-full bg-gray-300 dark:bg-black/50 dark:text-gray-300">
+                Corner Lights
+              </button>
+              <button className="px-3 py-1 rounded-full bg-gray-300 dark:bg-black/50 dark:text-gray-300">
+                Floor Mats
+              </button>
+              <button className="px-3 py-1 rounded-full bg-gray-300 dark:bg-black/50 dark:text-gray-300">
+                Fog Lights
+              </button>
+              <button className="px-3 py-1 rounded-full bg-gray-300 dark:bg-black/50 dark:text-gray-300">
+                Hoods
+              </button>
+              <button className="px-3 py-1 rounded-full bg-gray-300 dark:bg-black/50 dark:text-gray-300">
+                Wheel Hubs
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
