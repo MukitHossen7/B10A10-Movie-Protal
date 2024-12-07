@@ -83,7 +83,7 @@ const MyFavorites = () => {
                   </p>
                   <button
                     onClick={() => handleFavoriteDelete(favorite._id)}
-                    className="mt-4 w-full bg-indigo-600 text-gray-50 font-medium py-2 px-4 rounded hover:bg-indigo-600 transition-colors"
+                    className="mt-4 w-full bg-red-600 text-gray-50 font-medium py-2 px-4 rounded hover:bg-red-600 transition-colors"
                   >
                     Delete Favorite
                   </button>
