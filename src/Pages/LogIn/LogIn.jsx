@@ -28,7 +28,6 @@ const LogIn = () => {
   const handleLoginForm = (data) => {
     const email = data.email;
     const password = data.password;
-    console.log(email, password);
     signInExistingUsers(email, password)
       .then(() => {
         toast.success("Login successful");

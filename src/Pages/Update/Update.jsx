@@ -29,8 +29,6 @@ const Update = () => {
     if (e) {
       const generaArray = e.map((options) => options.value);
       setGenre(generaArray);
-    } else {
-      console.log("no genera");
     }
   };
   const handleUpdate = (e) => {

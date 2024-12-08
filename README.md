@@ -61,7 +61,7 @@
 
 ### Authentication:
 
--Firebase (Email/Password, Google Auth)
+- Firebase (Email/Password, Google Auth)
 
 ## Website Live Link:
 

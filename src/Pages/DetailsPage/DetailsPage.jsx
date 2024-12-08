@@ -31,7 +31,7 @@ const DetailsPage = () => {
       body: JSON.stringify(favorite),
     })
       .then((res) => res.json())
-      .then((data) => console.log(data));
+      .then((data) => data);
   };
   const handleDelete = (id) => {
     Swal.fire({

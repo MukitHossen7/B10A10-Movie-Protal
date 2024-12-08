@@ -33,7 +33,6 @@ const Register = () => {
     const email = e.target.email.value;
     const password = e.target.password.value;
     const terms = e.target.terms.checked;
-    console.log(name, photo, email, password);
     setPasswordError("");
     setIsTerms("");
     const validatePassword = (password) => {
@@ -58,14 +57,13 @@ const Register = () => {
       return;
     }
     createSignUpNewUsers(email, password)
-      .then((result) => {
+      .then(() => {
         e.target.reset();
         navigate("/");
         toast.success("Registration successful");
         updateUserProfile({ displayName: name, photoURL: photo }).then(() => {
           setRefetch(Date.now());
         });
-        console.log(result);
       })
       .catch(() => {
         toast.error("Email already in use");

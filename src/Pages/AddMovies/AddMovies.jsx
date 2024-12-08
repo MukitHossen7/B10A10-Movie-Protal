@@ -32,8 +32,6 @@ const AddMovies = () => {
     if (e) {
       const generaArray = e.map((options) => options.value);
       setGenre(generaArray);
-    } else {
-      console.log("no genera");
     }
   };
   const handleSubmit = async (e) => {
