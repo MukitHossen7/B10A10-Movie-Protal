@@ -14,7 +14,6 @@ const Footer = () => {
                   MoviePortal
                 </span>
               </h2>
-
               <p className="text-sm mt-2">
                 Explore, manage, and save your favorite movies effortlessly. A
                 hub for movie lovers.

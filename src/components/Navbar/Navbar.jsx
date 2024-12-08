@@ -73,8 +73,8 @@ const Navbar = () => {
             </ul>
           </div>
           <Link to="/" className="flex items-center space-x-1 lg:space-x-2">
-            <FiFilm className=" h-6 w-6 lg:h-8 lg:w-8 text-indigo-600" />
-            <span className="text-lg lg:text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600">
+            <FiFilm className=" h-5 w-5 lg:h-8 lg:w-8 text-indigo-600" />
+            <span className="text-base lg:text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600">
               MoviePortal
             </span>
           </Link>
@@ -92,46 +92,48 @@ const Navbar = () => {
             )}
           </ul>
         </div>
-        <div className="navbar-end gap-2">
-          <div className="text-xs">
+        <div className="navbar-end gap-1 lg:gap-2 items-center">
+          <div className="">
             <ThemeControl />
           </div>
-          {user ? (
-            <div className="flex items-center gap-1 lg:gap-4">
-              <div className="tooltip" data-tip={`${user?.displayName}`}>
-                <img
-                  className="w-7 lg:w-8 h-7 lg:h-8 object-cover rounded-full"
-                  src={user?.photoURL}
-                ></img>
-              </div>
-              <button
-                onClick={handleLogOut}
-                className="py-1 px-2 lg:px-2 border border-indigo-600 rounded-lg text-base lg:text-lg flex items-center gap-1"
-              >
-                <CiLogout />
-                Logout
-              </button>
-            </div>
-          ) : (
-            <div className="flex items-center gap-1 lg:gap-4">
-              <Link
-                to="/login"
-                className="py-1 px-2 lg:px-2 border border-indigo-600 rounded-lg text-base lg:text-lg flex items-center gap-1"
-              >
-                <CiLogin />
-                Login
-              </Link>
-              <div className="hidden lg:block">
-                <Link
-                  to="/register"
-                  className="py-1 px-2 lg:px-2 border border-indigo-600 rounded-lg text-base lg:text-lg flex items-center gap-1 "
+          <div>
+            {user ? (
+              <div className="flex items-center gap-1 lg:gap-4">
+                <div className="tooltip" data-tip={`${user?.displayName}`}>
+                  <img
+                    className="w-7 lg:w-8 h-7 lg:h-8 object-cover rounded-full"
+                    src={user?.photoURL}
+                  ></img>
+                </div>
+                <button
+                  onClick={handleLogOut}
+                  className="py-1 px-2 lg:px-2 border border-indigo-600 rounded-lg text-sm lg:text-lg flex items-center gap-1"
                 >
-                  <BiUserPlus />
-                  Register
-                </Link>
+                  <CiLogout />
+                  Logout
+                </button>
               </div>
-            </div>
-          )}
+            ) : (
+              <div className="flex items-center gap-1 lg:gap-4">
+                <Link
+                  to="/login"
+                  className="py-1 px-2 lg:px-2 border border-indigo-600 rounded-lg text-sm lg:text-lg flex items-center gap-1"
+                >
+                  <CiLogin />
+                  Login
+                </Link>
+                <div className="hidden lg:block">
+                  <Link
+                    to="/register"
+                    className="py-1 px-2 lg:px-2 border border-indigo-600 rounded-lg text-sm lg:text-lg flex items-center gap-1 "
+                  >
+                    <BiUserPlus />
+                    Register
+                  </Link>
+                </div>
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </div>

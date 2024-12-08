@@ -4,15 +4,15 @@ import { ThemeContext } from "../../Provider/ThemeProvider";
 const ThemeControl = () => {
   const { toggle } = useContext(ThemeContext);
   return (
-    <div>
-      <label className="swap swap-rotate">
+    <div className="">
+      <label className="swap swap-rotate w-8 lg:w-10">
         {/* this hidden checkbox controls the state */}
         <input type="checkbox" className="theme-controller" value="synthwave" />
 
         {/* sun icon */}
         <svg
           onClick={() => toggle()}
-          className="swap-off h-10 w-10 fill-current"
+          className="swap-off h-8 w-8 fill-current"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
         >
@@ -22,7 +22,7 @@ const ThemeControl = () => {
         {/* moon icon */}
         <svg
           onClick={() => toggle()}
-          className="swap-on h-10 w-10 fill-current"
+          className="swap-on h-8 w-8 fill-current"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
         >
