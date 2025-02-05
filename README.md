@@ -3,7 +3,9 @@
 - Description :
 - The Movie Portal is a dynamic, user-friendly platform that simplifies the process of exploring, adding, and managing movies. With a robust feature set and seamless user experience, this project is designed to cater to movie enthusiasts while maintaining a clean and responsive design.
 
-## Key Features
+## Website Live Link:
+
+-- https://movie-portal-f63b6.web.app/
 
 ### 1.Dynamic Movie Management
 
@@ -35,7 +37,7 @@
 - Filter movies by title, and sort by ratings for a personalized experience.
 - Display the six highest-rated movies on the homepage.
 
-## Technical
+## Technology Stack
 
 ### Frontend:
 
@@ -62,7 +64,3 @@
 ### Authentication:
 
 - Firebase (Email/Password, Google Auth)
-
-## Website Live Link:
-
--- https://movie-portal-f63b6.web.app/
