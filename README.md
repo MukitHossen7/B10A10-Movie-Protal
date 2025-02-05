@@ -7,6 +7,8 @@
 
 -- https://movie-portal-f63b6.web.app/
 
+## Project Features
+
 ### 1.Dynamic Movie Management
 
 - Add, view, delete, and update movies with ease.
