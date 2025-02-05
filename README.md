@@ -98,7 +98,7 @@
 - "sweetalert2": "^11.14.5",
 - "swiper": "^11.1.15"
 
-  ## devDependencies
+## devDependencies
 
 - "@eslint/js": "^9.15.0",
 - "@types/react": "^18.3.12",
